@@ -1,0 +1,277 @@
+/* Global Styles */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Roboto:wght@300;400;700&display=swap');
+
+:root {
+    --primary-color: #8a2be2;
+    --secondary-color: #00bfff;
+    --tertiary-color: #ff4500;
+    --quaternary-color: #32cd32;
+    --text-color: #ffffff;
+    --background-color: #050505;
+    --orbital-color: rgba(255, 255, 255, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* Loading Screen */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--background-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 0.5s ease-out;
+}
+
+.loader {
+    width: 80px;
+    height: 80px;
+    border: 8px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    border-top: 8px solid var(--primary-color);
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Portfolio Container */
+.portfolio-container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+header {
+    padding: 30px 20px;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+.main-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin-bottom: 10px;
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    opacity: 0.8;
+    letter-spacing: 2px;
+}
+
+/* Galaxy Container */
+.galaxy-container {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#space-scene {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+/* Planet Info */
+.planet-info {
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+    background: rgba(5, 5, 5, 0.7);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    z-index: 2;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.planet-info h2 {
+    font-family: 'Orbitron', sans-serif;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+.planet-info p {
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+#explore-btn {
+    padding: 10px 20px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Orbitron', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#explore-btn:hover {
+    background: var(--secondary-color);
+    transform: scale(1.05);
+}
+
+.hidden {
+    display: none;
+}
+
+/* Planet Labels */
+.planet-labels {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.planet-label {
+    position: absolute;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1rem;
+    color: white;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    pointer-events: none;
+    transition: all 0.3s ease;
+    opacity: 0;
+}
+
+/* About Section */
+.about-section {
+    padding: 60px 20px;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+}
+
+.about-section h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.about-section p {
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+/* Footer */
+footer {
+    padding: 30px 20px;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    z-index: 10;
+}
+
+.social-links {
+    margin-bottom: 20px;
+}
+
+.social-links a {
+    color: var(--text-color);
+    margin: 0 15px;
+    text-decoration: none;
+    font-family: 'Orbitron', sans-serif;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--primary-color);
+}
+
+/* Planet Specific Colors */
+.web-color {
+    color: var(--primary-color);
+}
+
+.ai-color {
+    color: var(--secondary-color);
+}
+
+.software-color {
+    color: var(--tertiary-color);
+}
+
+.games-color {
+    color: var(--quaternary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2.5rem;
+    }
+    
+    .galaxy-container {
+        height: 60vh;
+    }
+    
+    .planet-info {
+        width: 250px;
+        right: 50%;
+        transform: translateX(50%);
+        bottom: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 2rem;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+    }
+    
+    .planet-info {
+        width: 90%;
+    }
+}
