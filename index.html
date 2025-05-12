@@ -1,1 +1,56 @@
-<h1>hi from yousef</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yousef Islam - Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+    <div class="loading-screen">
+        <div class="loader"></div>
+        <p>Entering Space...</p>
+    </div>
+
+    <div class="portfolio-container">
+        <header>
+            <h1 class="main-title">Yousef Islam</h1>
+            <p class="subtitle">Developer & Creator</p>
+        </header>
+
+        <div class="galaxy-container">
+            <canvas id="space-scene"></canvas>
+            
+            <div class="planet-info" id="planet-info">
+                <h2 id="planet-name">Select a Planet</h2>
+                <p id="planet-description">Click on a planet to learn more about my projects in that category.</p>
+                <button id="explore-btn" class="hidden">Explore Projects</button>
+            </div>
+
+            <div class="planet-labels">
+                <div class="planet-label" data-planet="web">Web</div>
+                <div class="planet-label" data-planet="ai">AI</div>
+                <div class="planet-label" data-planet="software">Software</div>
+                <div class="planet-label" data-planet="games">Games</div>
+            </div>
+        </div>
+
+        <div class="about-section">
+            <h2>About Me</h2>
+            <p>Hi! I'm Yousef Islam, a passionate developer with expertise in web development, AI, software engineering, and game development. Welcome to my interactive portfolio!</p>
+        </div>
+
+        <footer>
+            <div class="social-links">
+                <a href="https://github.com/YOUSEFISLAM-dev" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="mailto:your.email@example.com">Email</a>
+            </div>
+            <p>&copy; 2025 Yousef Islam. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
