@@ -67,7 +67,8 @@ document.addEventListener('DOMContentLoaded', () => {
     
     document.getElementById('explore-btn').addEventListener('click', () => {
         if (selectedPlanet) {
-            window.location.href = `pages/${selectedPlanet}.html`;
+            // Ensure correct relative path
+            window.location.href = `./pages/${selectedPlanet}.html`;
         }
     });
 });
@@ -114,6 +115,18 @@ function init() {
     
     // Create planet labels
     updatePlanetLabels();
+    
+    // Enable clicking on labels to select and navigate
+    document.querySelectorAll('.planet-label').forEach(label => {
+        label.style.pointerEvents = 'auto';
+        label.style.cursor = 'pointer';
+        label.addEventListener('click', () => {
+            const planetName = label.getAttribute('data-planet');
+            selectPlanet(planetName);
+            // Navigate directly when label clicked
+            window.location.href = `./pages/${planetName}.html`;
+        });
+    });
     
     // Start animation loop
     animate();
@@ -165,8 +178,8 @@ function createPlanets() {
 function createPlanet(name) {
     const config = planetConfig[name];
     
-    // Create planet geometry
-    const planetGeometry = new THREE.SphereGeometry(config.size, 32, 32);
+    // Create planet geometry with higher detail
+    const planetGeometry = new THREE.SphereGeometry(config.size, 64, 64);
     
     // Create planet material
     const planetMaterial = new THREE.MeshStandardMaterial({
@@ -183,6 +196,17 @@ function createPlanet(name) {
     
     // Add planet to scene
     scene.add(planet);
+    
+    // Add subtle atmosphere glow
+    const atmosphereGeom = new THREE.SphereGeometry(config.size * 1.1, 64, 64);
+    const atmosphereMat = new THREE.MeshBasicMaterial({
+        color: config.color,
+        transparent: true,
+        opacity: 0.2,
+        side: THREE.BackSide
+    });
+    const atmosphere = new THREE.Mesh(atmosphereGeom, atmosphereMat);
+    planet.add(atmosphere);
     
     // Store planet reference
     planets[name] = {
