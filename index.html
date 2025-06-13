@@ -111,18 +111,118 @@
             <div class="grid md:grid-cols-3 gap-10 items-center">
                 <div class="md:col-span-2">
                     <div class="bg-dark-surface p-8 rounded-xl shadow-lg card">
-                        <p class="text-lg leading-relaxed text-gray-300">
+                        <p class="text-lg leading-relaxed text-gray-50">
                             Hello! I'm Yousef, a passionate Creative Developer with a strong interest in AI technologies.
                             I enjoy building intuitive and dynamic web applications and exploring the intersection of design and artificial intelligence.
                             My goal is to leverage technology to create impactful and innovative solutions.
                         </p>
                     </div>
                 </div>
-                <div class="md:col-span-1 flex justify-center">
-<div class="badge-base LI-profile-badge" data-locale="en_US" data-size="medium" data-theme="dark" data-type="VERTICAL" data-vanity="yousef-islam-470788287" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://eg.linkedin.com/in/yousef-islam-470788287?trk=profile-badge">Yousef Islam</a></div>
-                    <script type="IN/Badge" data-locale="en_US" data-size="medium" data-theme="dark" data-type="VERTICAL" data-vanity="yousef-islam-470788287" data-version="v1"></script>
-                </div>
-            </div>
+<!-- For best practice, add these <link> tags to your document's <head> -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- It's best to move these styles to your main CSS file -->
+<style>
+    .profile-card {
+        width: 320px;
+        background-color: #000000;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        color: #ffffff;
+        font-family: 'Lato', sans-serif;
+    }
+
+    .card-header {
+        background-color: #1D2226;
+        padding: 12px 20px;
+    }
+
+    .linkedin-logo {
+        width: 84px;
+        height: 21px;
+        display: block;
+    }
+
+    .card-body {
+        padding: 25px;
+        text-align: left;
+    }
+
+    .profile-picture {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        border: 3px solid #000;
+        margin-bottom: 15px;
+        background-color: #000;
+    }
+
+    .profile-name {
+        font-size: 22px;
+        font-weight: 700;
+        margin: 0 0 5px;
+    }
+
+    .profile-description {
+        font-size: 14px;
+        line-height: 1.4;
+        margin: 0 0 20px;
+        color: #e1e1e1;
+    }
+
+    .profile-button {
+        background-color: transparent;
+        border: 1px solid #ffffff;
+        border-radius: 20px;
+        color: #ffffff;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background-color 0.3s, color 0.3s;
+        display: inline-block;
+    }
+
+    .profile-button:hover {
+        background-color: #ffffff;
+        color: #000000;
+    }
+</style>
+
+
+<!-- Here is your container div with the profile widget inside -->
+<div class="md:col-span-1 flex justify-center">
+
+    <div class="profile-card">
+        <div class="card-header">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="white" class="linkedin-logo" focusable="false">
+              <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.25 6.5 1.75 1.75 0 016.5 8.25zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.62 1.62 0 0013 14.19V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"></path>
+            </svg>
+        </div>
+        <div class="card-body">
+            <img src="https://media.licdn.com/dms/image/v2/D4D03AQGLc2lnZM00wA/profile-displayphoto-shrink_200_200/B4DZdp5mVcHkAY-/0/1749828396869?e=1755129600&v=beta&t=_Ti_Boj__qD8Y1PMET7N9OOisfqpF6k5IRhQarLBXWE" alt="Profile Picture" class="profile-picture">
+            <h1 class="profile-name">Yousef Islam</h1>
+            <p class="profile-description">
+                Aspiring AI & Python Developer | <br>
+                Passionate About Building Smart Solutions Through Code & Innovation
+            </p>
+            <button class="profile-button" id="profileButton">View profile</button>
+        </div>
+    </div>
+
+</div>
+
+
+<!-- It's best to place this script just before your closing </body> tag -->
+<script>
+    // This makes the button clickable and links to the profile
+    document.getElementById('profileButton').addEventListener('click', function() {
+        window.open('https://www.linkedin.com/in/yousef-islam-470788287/', '_blank');
+    });
+</script>
         </div>
     </section>
 
