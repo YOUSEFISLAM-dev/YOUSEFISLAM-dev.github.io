@@ -260,72 +260,77 @@
                 <div class="h-1 w-24 bg-primary-light absolute bottom-0 left-1/2 transform -translate-x-1/2 mt-2"></div>
             </h2>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Certificate 1 -->
-                <div class="bg-dark-surface p-6 rounded-xl shadow-lg card overflow-hidden">
-                    <div class="relative mb-4 bg-dark-accent/30 rounded-lg overflow-hidden">
-                        <img src="https://i.ibb.co/HLgdfp5L/Screenshot-2025-06-13-192500.png" 
-                             alt="Data Analysis with Python" 
-                             class="w-full h-48 object-cover">
-                        <div class="absolute top-2 right-2 bg-primary text-white text-xs py-1 px-3 rounded-full">
-                            2025
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-2">Data Analysis with Python</h3>
-                    <p class="text-gray-300 text-sm mb-3"></p>
-                    <div class="flex justify-between items-center">
-                        <span class="text-xs text-gray-400">Issued June 13 2025</span>
-                        <a href="https://www.freecodecamp.org/certification/Yousef-Islam/data-analysis-with-python-v7" class="text-primary-light hover:text-primary flex items-center gap-1 transition">
-                            <span>Verify 📌</span>
-                            <i class="fas fa-external-link-alt text-xs"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Certificate 2 -->
-                <div class="bg-dark-surface p-6 rounded-xl shadow-lg card overflow-hidden">
-                    <div class="relative mb-4 bg-dark-accent/30 rounded-lg overflow-hidden">
-                        <img src="https://i.ibb.co/xbHG12d/UC-399f375d-4eb3-46e5-a013-d471c6e60c16.jpg" 
-                             alt="Web Development Certificate" 
-                             class="w-full h-48 object-cover">
-                        <div class="absolute top-2 right-2 bg-primary text-white text-xs py-1 px-3 rounded-full">
-                            2022
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-2">Fundamentals of IP Addressing and Subnetting</h3>
-                    <p class="text-gray-300 text-sm mb-3"></p>
-                    <div class="flex justify-between items-center">
-                        <span class="text-xs text-gray-400">Issued Sept 11 2022</span>
-                        <a href="https://www.udemy.com/certificate/UC-399f375d-4eb3-46e5-a013-d471c6e60c16?ref=mw" class="text-primary-light hover:text-primary flex items-center gap-1 transition">
-                            <span>Verify 📌</span>
-                            <i class="fas fa-external-link-alt text-xs"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Certificate 3 -->
-                <div class="bg-dark-surface p-6 rounded-xl shadow-lg card overflow-hidden">
-                    <div class="relative mb-4 bg-dark-accent/30 rounded-lg overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
-                             alt="AI Fundamentals Certificate" 
-                             class="w-full h-48 object-cover">
-                        <div class="absolute top-2 right-2 bg-primary text-white text-xs py-1 px-3 rounded-full">
-                            2024
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-2">AI Fundamentals</h3>
-                    <p class="text-gray-300 text-sm mb-3">Microsoft Certified</p>
-                    <div class="flex justify-between items-center">
-                        <span class="text-xs text-gray-400">Issued February 2024</span>
-                        <a href="#" class="text-primary-light hover:text-primary flex items-center gap-1 transition">
-                            <span>Verify</span>
-                            <i class="fas fa-external-link-alt text-xs"></i>
-                        </a>
-                    </div>
+            <div id="certificates-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Certificates will be loaded dynamically here -->
+                <div class="col-span-full flex justify-center items-center py-12">
+                    <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary-light"></div>
                 </div>
             </div>
         </div>
     </section>
+
+    <script>
+        // Function to fetch and display certificates
+        async function loadCertificates() {
+            try {
+                const response = await fetch('/data/certificates.json');
+                if (!response.ok) {
+                    throw new Error('Failed to load certificates data');
+                }
+                
+                const certificates = await response.json();
+                const container = document.getElementById('certificates-container');
+                
+                // Clear loading spinner
+                container.innerHTML = '';
+                
+                // Display certificates
+                certificates.forEach(certificate => {
+                    const certificateCard = document.createElement('div');
+                    certificateCard.className = 'bg-dark-surface p-6 rounded-xl shadow-lg card overflow-hidden';
+                    
+                    certificateCard.innerHTML = `
+                        <div class="relative mb-4 bg-dark-accent/30 rounded-lg overflow-hidden">
+                            <img src="${certificate.imageUrl}" 
+                                 alt="${certificate.title}" 
+                                 class="w-full h-48 object-cover">
+                            <div class="absolute top-2 right-2 bg-primary text-white text-xs py-1 px-3 rounded-full">
+                                ${certificate.year}
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">${certificate.title}</h3>
+                        <p class="text-gray-300 text-sm mb-3">${certificate.issuer || ''}</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs text-gray-400">Issued ${certificate.issueDate}</span>
+                            <a href="${certificate.verifyUrl}" target="_blank" class="text-primary-light hover:text-primary flex items-center gap-1 transition">
+                                <span>Verify 📌</span>
+                                <i class="fas fa-external-link-alt text-xs"></i>
+                            </a>
+                        </div>
+                    `;
+                    
+                    container.appendChild(certificateCard);
+                });
+                
+            } catch (error) {
+                console.error('Error loading certificates:', error);
+                const container = document.getElementById('certificates-container');
+                container.innerHTML = `
+                    <div class="col-span-full text-center py-8">
+                        <p class="text-red-400">Failed to load certificates. Please try again later.</p>
+                        <button id="retry-load" class="mt-4 bg-primary hover:bg-primary-light text-white py-2 px-4 rounded">
+                            Retry
+                        </button>
+                    </div>
+                `;
+                
+                document.getElementById('retry-load')?.addEventListener('click', loadCertificates);
+            }
+        }
+        
+        // Load certificates when the page loads
+        document.addEventListener('DOMContentLoaded', loadCertificates);
+    </script>
 
     <div class="section-divider"></div>
 

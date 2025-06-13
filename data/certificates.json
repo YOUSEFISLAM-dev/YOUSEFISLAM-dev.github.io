@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "title": "Data Analysis with Python",
+    "issuer": "freeCodeCamp",
+    "issueDate": "June 13, 2025",
+    "year": "2025",
+    "imageUrl": "https://i.ibb.co/HLgdfp5L/Screenshot-2025-06-13-192500.png",
+    "verifyUrl": "https://www.freecodecamp.org/certification/Yousef-Islam/data-analysis-with-python-v7"
+  },
+  {
+    "id": 2,
+    "title": "Fundamentals of IP Addressing and Subnetting",
+    "issuer": "Udemy",
+    "issueDate": "Sept 11, 2022",
+    "year": "2022",
+    "imageUrl": "https://i.ibb.co/xbHG12d/UC-399f375d-4eb3-46e5-a013-d471c6e60c16.jpg",
+    "verifyUrl": "https://www.udemy.com/certificate/UC-399f375d-4eb3-46e5-a013-d471c6e60c16?ref=mw"
+  },
+  {
+    "id": 3,
+    "title": "Network Exploitation Basics",
+    "issuer": "Udemy",
+    "issueDate": "Sept 11, 2022",
+    "year": "2022",
+    "imageUrl": "https://udemy-certificate.s3.amazonaws.com/image/UC-38fac18b-df6b-4f99-8f4e-e8763207e571.jpg",
+    "verifyUrl": "https://www.udemy.com/certificate/UC-38fac18b-df6b-4f99-8f4e-e8763207e571/"
+  }
+]
