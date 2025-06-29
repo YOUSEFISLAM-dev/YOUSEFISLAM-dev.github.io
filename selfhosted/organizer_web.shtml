@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>منظم ملفات متقدم</title>
+  <style>
+    :root {
+      --bg: #121212;
+      --card-bg: #1e1e1e;
+      --text: #e0e0e0;
+      --accent: #bb86fc;
+      --btn-bg: #3700b3;
+      --btn-hover: #6200ee;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', sans-serif; line-height: 1.6; padding: 20px; }
+    .container { max-width: 700px; margin: auto; }
+    .card { background: var(--card-bg); padding: 20px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.5); }
+    h1 { text-align: center; margin-bottom: 15px; color: var(--accent); }
+    p { margin-bottom: 15px; }
+    button { width: 100%; padding: 12px; margin-bottom: 20px; border: none; border-radius: 6px; background: var(--btn-bg); color: #fff; font-size: 16px; cursor: pointer; transition: background 0.3s; }
+    button:hover { background: var(--btn-hover); }
+    .instructions { background: var(--card-bg); padding: 15px; border-radius: 8px; margin-top: 20px; }
+    .instructions h2 { color: var(--accent); margin-bottom: 10px; }
+    .instructions ol { margin-left: 20px; }
+    code { background: #2e2e2e; padding: 2px 4px; border-radius: 4px; font-family: monospace; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <h1>تحميل منظم الملفات</h1>
+      <p>اضغط الزر أدناه لتحميل السكربت الجاهز <code>file_organizer.bat</code> بشفافية وسهولة.</p>
+      <button id="dl">⬇️ تحميل السكربت</button>
+    </div>
+
+    <div class="instructions">
+      <h2>كيفية الاستخدام</h2>
+      <ol>
+        <li>احفظ الملف <code>file_organizer.bat</code> في المجلد الذي تريد تنظيم ملفاته.</li>
+        <li>انقر نقرًا مزدوجًا على الملف لفتحه. ستظهر قائمة خيارات:</li>
+        <li>اختر:</li>
+        <ul>
+          <li><code>1)Ext</code>: تنظيم حسب الامتداد.</li>
+          <li><code>2)Date</code>: تنظيم حسب تاريخ التعديل (YYYY-MM).</li>
+          <li><code>3)Size</code>: تنظيم حسب نطاق الحجم (KB).</li>
+          <li><code>4)Clean</code>: حذف المجلدات الفارغة.</li>
+          <li><code>5)Dir</code>: لتغيير المجلد المستهدف يدويًا.</li>
+          <li><code>6)Exit</code>: للخروج من السكربت.</li>
+        </ul>
+        <li>بعد اختيارك، انتظر حتى يتم تنفيذ العملية، ثم اضغط أي زر للعودة للقائمة.</li>
+        <li>لإغلاق السكربت اختر <code>6)Exit</code>.</li>
+      </ol>
+    </div>
+  </div>
+
+  <script>
+    const bat = `@echo off & setlocal EnableDelayedExpansion
+set "T=%~dp0"
+:MENU
+echo 1)Ext 2)Date 3)Size 4)Clean 5)Dir 6)Exit
+choice /c 123456 /n /m "Choose:"
+set c=%errorlevel%
+if %c%==6 exit /b
+if %c%==5 (set /p T=Dir:) & goto MENU
+if %c%==1 for %%F in ("%T%*.*") do (set e=%%~xF & if "!e!"=="" (set e=_no) & set e=!e:~1! & md "%T%!e!" 2>nul & move "%%F" "%T%!e!" >nul)
+if %c%==2 for %%F in ("%T%*.*") do for /f "tokens=1-3 delims=/- " %%d in ("%%~tF") do (set f=%%f-%%d & md "%T%!f!" 2>nul & move "%%F" "%T%!f!" >nul)
+if %c%==3 (set /p R=Ranges:) & for %%R in (%R%) do for /f "tokens=1-2 delims=-" %%a in ("%%R") do (set a=%%a & set b=%%b & if "!b!"=="" set b=999999 & set n=!a!_to_!b! & md "%T%!n!" 2>nul & for %%F in ("%T%*.*") do (set /a s=%%~zF/1024 & if !s! geq !a! if !s! leq !b! move "%%F" "%T%!n!" >nul))
+if %c%==4 for /d %%D in ("%T%*.") do dir "%%D"|findstr /c:"<DIR>" >nul|| rd "%%D"
+goto MENU`;
+    document.getElementById('dl').onclick = () => {
+      const blob = new Blob([bat], { type: 'application/octet-stream' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'file_organizer.bat';
+      document.body.appendChild(a);
+      a.click();
+      URL.revokeObjectURL(url);
+      a.remove();
+    };
+  </script>
+</body>
+</html>
