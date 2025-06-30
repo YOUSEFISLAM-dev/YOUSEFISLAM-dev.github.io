@@ -4,7 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <title>Yousef Islam - Portfolio</title>
+    
+    <!-- Primary Meta Tags -->
+    <title>Yousef Islam - Creative Developer & AI Enthusiast | Portfolio</title>
+    <meta name="title" content="Yousef Islam - Creative Developer & AI Enthusiast | Portfolio">
+    <meta name="description" content="Explore the portfolio of Yousef Islam, a skilled developer specializing in Python, AI/ML, web development, and creative solutions. View projects, skills & contact info.">
+    <meta name="keywords" content="Yousef Islam, web developer, Python developer, AI developer, portfolio, creative developer, software engineer, Egypt developer, HTML, CSS, JavaScript, Python, React, AI/ML">
+    <meta name="author" content="Yousef Islam">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yousefislam-dev.github.io/">
+    <meta property="og:title" content="Yousef Islam - Creative Developer & AI Enthusiast">
+    <meta property="og:description" content="Explore the portfolio of Yousef Islam, a skilled developer specializing in Python, AI/ML, web development, and creative solutions.">
+    <meta property="og:image" content="https://yousefislam-dev.github.io/image/portfolio-preview.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://yousefislam-dev.github.io/">
+    <meta property="twitter:title" content="Yousef Islam - Creative Developer & AI Enthusiast">
+    <meta property="twitter:description" content="Explore the portfolio of Yousef Islam, a skilled developer specializing in Python, AI/ML, web development, and creative solutions.">
+    <meta property="twitter:image" content="https://yousefislam-dev.github.io/image/portfolio-preview.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://yousefislam-dev.github.io/">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -46,6 +72,8 @@
     <script src="https://cdn.jsdelivr.net/npm/dompurify@2.3.8/dist/purify.min.js"></script>
     <!-- Chat widget styles -->
     <link rel="stylesheet" href="css/chat.css">
+    <!-- SEO Monitor Script -->
+    <script src="js/seo-monitor.js" async></script>
     <style>
         body {
             background-color: #0f172a; /* dark */
@@ -73,9 +101,56 @@
             margin: 3rem auto;
             width: 80%;
         }
+        
+        /* SEO friendly page loader */
+        #page-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0f172a;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+        
+        .loader-content {
+            text-align: center;
+        }
+        
+        .loader-spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid transparent;
+            border-top-color: #8b5cf6;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .loader-text {
+            color: #e2e8f0;
+            font-size: 16px;
+            font-weight: 500;
+        }
     </style>
 </head>
 <body class="min-h-screen">
+    <!-- Page Loader for better UX and SEO -->
+    <div id="page-loader">
+        <div class="loader-content">
+            <div class="loader-spinner"></div>
+            <p class="loader-text">Loading Yousef's Portfolio...</p>
+        </div>
+    </div>
     <!-- Navigation -->
     <nav class="bg-dark-surface/80 backdrop-blur-lg sticky top-0 z-50 shadow-lg py-4">
         <div class="container mx-auto px-6 flex justify-between items-center">
@@ -97,10 +172,10 @@
             <h1 class="text-5xl md:text-6xl font-bold mb-4">
                 <span class="gradient-text">Yousef Islam</span>
             </h1>
-            <p class="text-xl md:text-2xl text-gray-300 mb-8">Creative Developer & AI Enthusiast</p>
-            <a href="/path-to-cv.pdf" download class="bg-primary hover:bg-primary-light text-white font-medium py-3 px-8 rounded-full inline-flex items-center space-x-2 transition transform hover:scale-105 shadow-lg">
+            <p class="text-xl md:text-2xl text-gray-300 mb-8" id="hero-subtitle">Creative Developer & AI Enthusiast</p>
+            <a href="/path-to-cv.pdf" download class="bg-primary hover:bg-primary-light text-white font-medium py-3 px-8 rounded-full inline-flex items-center space-x-2 transition transform hover:scale-105 shadow-lg" aria-label="Download CV">
                 <span>Download CV</span>
-                <i class="fas fa-download"></i>
+                <i class="fas fa-download" aria-hidden="true"></i>
             </a>
         </div>
     </header>
@@ -377,7 +452,12 @@
                             </a>
                         </div>
                         <div class="rounded-lg overflow-hidden shadow-lg">
-                            <img src="image/ChatGPT Image Jun 29, 2025, 11_18_00 PM.png" alt="Advanced File Organizer Batch Screenshot" class="w-auto h-auto">
+                            <img src="image/ChatGPT Image Jun 29, 2025, 11_18_00 PM.png" 
+                                 alt="Advanced File Organizer Batch Screenshot - UI interface showing file organization options" 
+                                 class="w-auto h-auto"
+                                 loading="lazy"
+                                 width="600"
+                                 height="400">
                         </div>
                     </div>
                 </div>
@@ -467,7 +547,84 @@
         document.addEventListener('DOMContentLoaded', () => {
             const chatBot = new ChatBot();
             document.getElementById('timestampDiv').textContent = new Date().toISOString().replace('T', ' ').substring(0, 19) + ' UTC';
+            
+            // Remove page loader
+            const pageLoader = document.getElementById('page-loader');
+            if (pageLoader) {
+                setTimeout(() => {
+                    pageLoader.style.opacity = '0';
+                    pageLoader.style.visibility = 'hidden';
+                    setTimeout(() => {
+                        pageLoader.remove();
+                    }, 500);
+                }, 500);
+            }
+            
+            // Add SEO performance improvements
+            // Add lazy loading to images that don't already have it
+            document.querySelectorAll('img:not([loading])').forEach(img => {
+                img.setAttribute('loading', 'lazy');
+            });
+            
+            // Add alt text to images that don't have it
+            document.querySelectorAll('img:not([alt])').forEach(img => {
+                img.setAttribute('alt', 'Yousef Islam Portfolio Image');
+            });
+            
+            // Add proper aria labels to links
+            document.querySelectorAll('a:not([aria-label])').forEach(link => {
+                if (!link.textContent.trim()) {
+                    link.setAttribute('aria-label', 'Link to ' + (link.getAttribute('href') || 'page'));
+                }
+            });
         });
+    </script>
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Yousef Islam",
+      "url": "https://yousefislam-dev.github.io/",
+      "image": "https://media.licdn.com/dms/image/v2/D4D03AQGLc2lnZM00wA/profile-displayphoto-shrink_200_200/B4DZdp5mVcHkAY-/0/1749828396869",
+      "jobTitle": "Creative Developer & AI Enthusiast",
+      "description": "Passionate developer with strong interest in AI technologies, building intuitive web applications and exploring design and artificial intelligence.",
+      "sameAs": [
+        "https://github.com/YOUSEFISLAM-dev",
+        "https://eg.linkedin.com/in/yousef-islam-470788287",
+        "https://yousef-dev.tech"
+      ],
+      "knowsAbout": ["Python", "AI/ML", "React", "Web Development", "Arduino", "API Development"],
+      "email": "mailto:youseffo2fo2@gmail.com",
+      "hasOccupation": {
+        "@type": "Occupation",
+        "name": "Software Developer",
+        "skills": "HTML/CSS/JS/PHP, Python, AI/ML, React, API'S, Arduino, SQL, Docker, GIT/Github"
+      },
+      "workExample": [
+        {
+          "@type": "CreativeWork",
+          "name": "Advanced File Organizer Batch",
+          "url": "https://yousef-dev.tech/selfhosted/organizer_web.shtml"
+        }
+      ]
+    }
+    </script>
+    
+    <!-- Structured Data for Website -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "url": "https://yousefislam-dev.github.io/",
+      "name": "Yousef Islam - Portfolio",
+      "description": "Portfolio website of Yousef Islam, a creative developer and AI enthusiast.",
+      "author": {
+        "@type": "Person",
+        "name": "Yousef Islam"
+      }
+    }
     </script>
 </body>
 </html>
