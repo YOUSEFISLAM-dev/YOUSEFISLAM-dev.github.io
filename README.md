@@ -30,7 +30,7 @@ Welcome to my portfolio website repository! I'm Yousef Islam, a developer specia
 ## Projects
 
 ### Advanced File Organizer Batch
-A simple yet powerful batch tool for automatic file organization by extension, date, size, and more. [View Project](https://yousef-dev.tech/selfhosted/organizer_web.shtml)
+A powerful yet lightweight batch tool that automatically organizes files based on extension, date, size, or removes empty directories. Features a modern dark-themed interface and requires no additional software. [View Project](https://yousef-dev.tech/selfhosted/organizer_web.shtml)
 
 ### Arduino Bluetooth Car
 A remotely controlled car using Arduino and Bluetooth technology, featuring wireless control, four directional movement, and variable speed control. Developed in Cairo, Egypt. [View Code](https://yousefislam-dev.github.io/projects/arduino-bluetooth-car.ino)
