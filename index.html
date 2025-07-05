@@ -72,8 +72,22 @@
     <script src="https://cdn.jsdelivr.net/npm/dompurify@2.3.8/dist/purify.min.js"></script>
     <!-- Chat widget styles -->
     <link rel="stylesheet" href="css/chat.css">
+    <!-- Advanced animations and visual effects -->
+    <link rel="stylesheet" href="css/advanced-animations.css">
+    <!-- Progressive Web App manifest -->
+    <link rel="manifest" href="manifest.json">
+    <!-- Apple touch icon -->
+    <link rel="apple-touch-icon" href="favicon.ico">
+    <!-- Theme color for mobile browsers -->
+    <meta name="theme-color" content="#8b5cf6">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <!-- SEO Monitor Script -->
     <script src="js/seo-monitor.js" async></script>
+    <!-- Advanced interactions and animations -->
+    <script src="js/advanced-interactions.js" defer></script>
+    <!-- Web Components -->
+    <script src="js/web-components.js" defer></script>
     <style>
         body {
             background-color: #0f172a; /* dark */
@@ -102,14 +116,14 @@
             width: 80%;
         }
         
-        /* SEO friendly page loader */
+        /* Enhanced page loader with progress */
         #page-loader {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: #0f172a;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             z-index: 9999;
             display: flex;
             justify-content: center;
@@ -122,13 +136,27 @@
         }
         
         .loader-spinner {
-            width: 50px;
-            height: 50px;
-            border: 3px solid transparent;
+            width: 60px;
+            height: 60px;
+            border: 4px solid transparent;
             border-top-color: #8b5cf6;
             border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 15px;
+            animation: spin 1s linear infinite, pulse 2s ease-in-out infinite;
+            margin: 0 auto 20px;
+            position: relative;
+        }
+        
+        .loader-spinner::before {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            bottom: 5px;
+            border-radius: 50%;
+            border: 4px solid transparent;
+            border-top-color: #6366f1;
+            animation: spin 2s linear infinite reverse;
         }
         
         @keyframes spin {
@@ -136,8 +164,38 @@
             100% { transform: rotate(360deg); }
         }
         
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
         .loader-text {
             color: #e2e8f0;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        
+        .loader-subtext {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+        
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            .loader-spinner {
+                animation: none;
+            }
+            
+            .card {
+                transition: none;
+            }
+            
+            .gradient-text {
+                animation: none;
+            }
+        }
             font-size: 16px;
             font-weight: 500;
         }
@@ -149,6 +207,7 @@
         <div class="loader-content">
             <div class="loader-spinner"></div>
             <p class="loader-text">Loading Yousef's Portfolio...</p>
+            <p class="loader-subtext">Preparing an amazing experience</p>
         </div>
     </div>
     <!-- Navigation -->
@@ -310,26 +369,35 @@
 
     <div class="section-divider"></div>
 
-    <!-- Skills Section -->
+    <!-- Skills Section with Enhanced Interactive Demos -->
     <section id="skills" class="py-16 px-6 bg-dark-surface/50">
         <div class="container mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-16 relative">
-                <span class="gradient-text">Skills</span>
+            <h2 class="text-3xl font-bold text-center mb-16 relative text-reveal">
+                <span class="gradient-text">Skills & Expertise</span>
                 <div class="h-1 w-24 bg-primary-light absolute bottom-0 left-1/2 transform -translate-x-1/2 mt-2"></div>
             </h2>
             
-            <div class="flex flex-wrap justify-center gap-4">
-                <span class="bg-dark-accent px-6 py-3 rounded-full text-gray-200 font-medium shadow-md hover:shadow-lg hover:bg-primary transition">HTML/CSS/JS/PHP</span>
-                <span class="bg-dark-accent px-6 py-3 rounded-full text-gray-200 font-medium shadow-md hover:shadow-lg hover:bg-primary transition">Python</span>
-                <span class="bg-dark-accent px-6 py-3 rounded-full text-gray-200 font-medium shadow-md hover:shadow-lg hover:bg-primary transition">AI/ML</span>
-                <span class="bg-dark-accent px-6 py-3 rounded-full text-gray-200 font-medium shadow-md hover:shadow-lg hover:bg-primary transition">React</span>
-                <span class="bg-dark-accent px-6 py-3 rounded-full text-gray-200 font-medium shadow-md hover:shadow-lg hover:bg-primary transition">API'S</span>
-                <span class="bg-dark-accent px-6 py-3 rounded-full text-gray-200 font-medium shadow-md hover:shadow-lg hover:bg-primary transition">Arduino</span>
-                <span class="bg-dark-accent px-6 py-3 rounded-full text-gray-200 font-medium shadow-md hover:shadow-lg hover:bg-primary transition">SQL</span>
-                <span class="bg-dark-accent px-6 py-3 rounded-full text-gray-200 font-medium shadow-md hover:shadow-lg hover:bg-primary transition">Docker</span>
-                <span class="bg-dark-accent px-6 py-3 rounded-full text-gray-200 font-medium shadow-md hover:shadow-lg hover:bg-primary transition">GIT/Github</span>
+            <!-- Interactive Skills Demos -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+                <skill-demo skill="HTML/CSS/JS/PHP" level="95" demo-type="code"></skill-demo>
+                <skill-demo skill="Python" level="90" demo-type="code"></skill-demo>
+                <skill-demo skill="AI/ML" level="85" demo-type="progress"></skill-demo>
+                <skill-demo skill="React" level="80" demo-type="code"></skill-demo>
+                <skill-demo skill="APIs" level="88" demo-type="progress"></skill-demo>
+                <skill-demo skill="Arduino" level="75" demo-type="progress"></skill-demo>
+                <skill-demo skill="SQL" level="85" demo-type="code"></skill-demo>
+                <skill-demo skill="Docker" level="78" demo-type="progress"></skill-demo>
+                <skill-demo skill="Git/GitHub" level="92" demo-type="progress"></skill-demo>
+            </div>
 
-                
+            <!-- Traditional Skills Pills for Visual Appeal -->
+            <div class="flex flex-wrap justify-center gap-4">
+                <span class="bg-dark-accent px-6 py-3 rounded-full text-gray-200 font-medium shadow-md hover:shadow-lg hover:bg-primary transition hover-glow">Web Development</span>
+                <span class="bg-dark-accent px-6 py-3 rounded-full text-gray-200 font-medium shadow-md hover:shadow-lg hover:bg-primary transition hover-glow">Machine Learning</span>
+                <span class="bg-dark-accent px-6 py-3 rounded-full text-gray-200 font-medium shadow-md hover:shadow-lg hover:bg-primary transition hover-glow">IoT Development</span>
+                <span class="bg-dark-accent px-6 py-3 rounded-full text-gray-200 font-medium shadow-md hover:shadow-lg hover:bg-primary transition hover-glow">Database Design</span>
+                <span class="bg-dark-accent px-6 py-3 rounded-full text-gray-200 font-medium shadow-md hover:shadow-lg hover:bg-primary transition hover-glow">DevOps</span>
+                <span class="bg-dark-accent px-6 py-3 rounded-full text-gray-200 font-medium shadow-md hover:shadow-lg hover:bg-primary transition hover-glow">API Development</span>
             </div>
         </div>
     </section>
@@ -418,109 +486,51 @@
 
     <div class="section-divider"></div>
 
-    <!-- Projects Section -->
+    <!-- Projects Section with Enhanced Interactive Components -->
     <section id="projects" class="py-16 px-6">
         <div class="container mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-16 relative">
-                <span class="gradient-text">Projects</span>
+            <h2 class="text-3xl font-bold text-center mb-16 relative text-reveal">
+                <span class="gradient-text">Featured Projects</span>
                 <div class="h-1 w-24 bg-primary-light absolute bottom-0 left-1/2 transform -translate-x-1/2 mt-2"></div>
             </h2>
             
-            <div class="grid md:grid-cols-1 lg:grid-cols-1 gap-10">
-                <div class="bg-dark-surface p-8 rounded-xl shadow-lg card">
-                    <div class="flex justify-between items-start mb-4">
-                        <h3 class="text-2xl font-bold text-primary-light">Advanced File Organizer Batch</h3>
-                        <div class="flex space-x-2">
-                            <span class="text-xs bg-dark-accent py-1 px-3 rounded-full">Batch</span>
-                            <span class="text-xs bg-dark-accent py-1 px-3 rounded-full">Automation</span>
-                        </div>
-                    </div>
-                    <div class="grid md:grid-cols-2 gap-6 items-center">
-                        <div><p class="text-gray-300 mb-6">
-    A powerful yet lightweight batch tool that automatically organizes files based on extension, date, size, or removes empty directories.
-    <br><br>
-    <strong>Key Features:</strong>
-    <ul class="list-disc pl-5 text-gray-300 mb-4">
-        <li>No additional software required</li>
-        <li>Modern dark-themed interface</li>
-        <li>Intelligent file categorization</li>
-        <li>Customizable sorting options</li>
-        <li>Efficient empty folder cleanup</li>
-    </ul>
-    
-    <strong>How to Use:</strong><br>
-    Simply download the file, place it in any folder you want to organize, run it, and select your preferred organization method from the menu.
-    <br><br>
-    Perfect for students, professionals, and anyone who needs a quick file organization solution. Open-source and free to use!
-</p>
+            <!-- Interactive Project Showcase -->
+            <div class="space-y-8">
+                <interactive-project 
+                    title="Advanced File Organizer Batch"
+                    description="A powerful yet lightweight batch tool that automatically organizes files based on extension, date, size, or removes empty directories. Features modern dark-themed interface, intelligent categorization, and requires no additional software."
+                    image="image/ChatGPT Image Jun 29, 2025, 11_18_00 PM.png"
+                    tags="Batch,Automation,Windows,Open Source"
+                    demo-url="https://yousef-dev.tech/selfhosted/organizer_web.shtml"
+                    github-url="https://github.com/YOUSEFISLAM-dev/file-organizer">
+                </interactive-project>
 
-                            <a href="https://yousef-dev.tech/selfhosted/organizer_web.shtml" target="_blank" class="inline-flex items-center space-x-2 text-primary-light hover:text-primary font-medium transition">
-                                <span>View Project</span>
-                                <i class="fas fa-arrow-right"></i>
-                            </a>
-                        </div>
-                        <div class="rounded-lg overflow-hidden shadow-lg">
-                            <img src="image/ChatGPT Image Jun 29, 2025, 11_18_00 PM.png" 
-                                 alt="Advanced File Organizer Batch Screenshot - UI interface showing file organization options" 
-                                 class="w-auto h-auto"
-                                 loading="lazy"
-                                 width="600"
-                                 height="400">
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Arduino Bluetooth Car Project -->
-                <div class="bg-dark-surface p-8 rounded-xl shadow-lg card">
-                    <div class="flex justify-between items-start mb-4">
-                        <h3 class="text-2xl font-bold text-primary-light">Arduino Bluetooth Car</h3>
-                        <div class="flex space-x-2">
-                            <span class="text-xs bg-dark-accent py-1 px-3 rounded-full">Arduino</span>
-                            <span class="text-xs bg-dark-accent py-1 px-3 rounded-full">Bluetooth</span>
-                            <span class="text-xs bg-dark-accent py-1 px-3 rounded-full">IoT</span>
-                        </div>
-                    </div>
-                    <div class="grid md:grid-cols-2 gap-6 items-center">
-                        <div>
-                            <p class="text-gray-300 mb-6">
-                                A remotely controlled car using Arduino and Bluetooth technology. This project showcases my hardware programming and IoT development skills.
-                                <br><br>
-                                <strong>Features:</strong>
-                                <ul class="list-disc pl-5 text-gray-300 mb-4">
-                                    <li>Bluetooth connectivity for wireless control</li>
-                                    <li>Four directional movement (forward, backward, left, right)</li>
-                                    <li>Variable speed control</li>
-                                    <li>Emergency stop function</li>
-                                    <li>Optimized motor management</li>
-                                </ul>
-                                
-                                <strong>Technologies:</strong>
-                                <br>
-                                Arduino, C++, Bluetooth HC-05, DC Motors, Motor Driver Shield
-                                <br><br>
-                                Developed in Cairo, Egypt as part of my exploration of physical computing and IoT applications.
-                            </p>
-                            <div class="flex space-x-4">
-                                <a href="/projects/arduino-bluetooth-car.ino" target="_blank" class="inline-flex items-center space-x-2 text-primary-light hover:text-primary font-medium transition">
-                                    <span>View Code</span>
-                                    <i class="fas fa-code"></i>
-                                </a>
-                                <a href="https://github.com/YOUSEFISLAM-dev/arduino-projects" target="_blank" class="inline-flex items-center space-x-2 text-primary-light hover:text-primary font-medium transition">
-                                    <span>GitHub Repo</span>
-                                    <i class="fab fa-github"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="rounded-lg overflow-hidden shadow-lg">
-                            <img src="image/car.png" 
-                                 alt="Arduino Bluetooth Car - Remote controlled car with circuit board and motor setup" 
-                                 class="w-auto h-auto"
-                                 loading="lazy"
-                                 width="auto"
-                                 height="auto">
-                        </div>
-                    </div>
-                </div>
+                <interactive-project 
+                    title="Arduino Bluetooth Car"
+                    description="A remotely controlled car using Arduino and Bluetooth technology showcasing hardware programming and IoT development skills. Features wireless control, variable speed, emergency stop, and optimized motor management."
+                    image="image/car.png"
+                    tags="Arduino,IoT,Bluetooth,C++,Hardware"
+                    demo-url=""
+                    github-url="https://github.com/YOUSEFISLAM-dev/arduino-projects">
+                </interactive-project>
+
+                <interactive-project 
+                    title="AI Portfolio Assistant"
+                    description="An intelligent chatbot integrated into this portfolio website that can answer questions about my skills, projects, and experience. Built with modern AI APIs and natural language processing."
+                    image=""
+                    tags="AI,ChatBot,JavaScript,API Integration"
+                    demo-url="#chat"
+                    github-url="https://github.com/YOUSEFISLAM-dev/YOUSEFISLAM-dev.github.io">
+                </interactive-project>
+
+                <interactive-project 
+                    title="Data Analysis with Python"
+                    description="Professional certification project demonstrating advanced data analysis techniques using Python, pandas, matplotlib, and NumPy. Includes statistical analysis, data visualization, and machine learning basics."
+                    image=""
+                    tags="Python,Data Science,Machine Learning,Certification"
+                    demo-url="https://www.freecodecamp.org/certification/Yousef-Islam/data-analysis-with-python-v7"
+                    github-url="">
+                </interactive-project>
             </div>
         </div>
     </section>
@@ -696,6 +706,130 @@
         "name": "Yousef Islam"
       }
     }
+    </script>
+
+    <!-- Progressive Web App Setup -->
+    <script>
+        // Service Worker Registration
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('SW registered: ', registration);
+                        
+                        // Check for updates
+                        registration.addEventListener('updatefound', () => {
+                            const newWorker = registration.installing;
+                            newWorker.addEventListener('statechange', () => {
+                                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                    // Show update notification
+                                    if (confirm('New version available! Reload to update?')) {
+                                        window.location.reload();
+                                    }
+                                }
+                            });
+                        });
+                    })
+                    .catch(error => console.log('SW registration failed: ', error));
+            });
+        }
+
+        // PWA Install Prompt
+        let deferredPrompt;
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            
+            // Show install button after a delay
+            setTimeout(() => {
+                if (deferredPrompt) {
+                    const installBtn = document.createElement('button');
+                    installBtn.className = 'fab';
+                    installBtn.innerHTML = '<i class="fas fa-download"></i>';
+                    installBtn.title = 'Install App';
+                    installBtn.style.cssText = `
+                        position: fixed;
+                        bottom: 100px;
+                        right: 20px;
+                        z-index: 1000;
+                    `;
+                    
+                    installBtn.addEventListener('click', () => {
+                        deferredPrompt.prompt();
+                        deferredPrompt.userChoice.then((choiceResult) => {
+                            if (choiceResult.outcome === 'accepted') {
+                                console.log('User accepted the install prompt');
+                            }
+                            deferredPrompt = null;
+                            installBtn.remove();
+                        });
+                    });
+                    
+                    document.body.appendChild(installBtn);
+                }
+            }, 5000);
+        });
+
+        // Track PWA usage
+        window.addEventListener('appinstalled', () => {
+            console.log('PWA installed successfully');
+            // Hide install button if visible
+            const installBtn = document.querySelector('.fab[title="Install App"]');
+            if (installBtn) installBtn.remove();
+        });
+
+        // Offline/Online status
+        window.addEventListener('online', () => {
+            console.log('Back online');
+            // You could show a notification here
+        });
+
+        window.addEventListener('offline', () => {
+            console.log('Gone offline');
+            // You could show an offline indicator here
+        });
+
+        // Enhanced Performance Monitoring
+        if ('performance' in window) {
+            window.addEventListener('load', () => {
+                setTimeout(() => {
+                    const perfData = performance.getEntriesByType('navigation')[0];
+                    console.log('Page Load Performance:', {
+                        domContentLoaded: perfData.domContentLoadedEventEnd - perfData.domContentLoadedEventStart,
+                        loadComplete: perfData.loadEventEnd - perfData.loadEventStart,
+                        totalTime: perfData.loadEventEnd - perfData.fetchStart
+                    });
+                }, 0);
+            });
+        }
+
+        // Web Share API
+        if ('share' in navigator) {
+            const shareButton = document.createElement('button');
+            shareButton.className = 'fab';
+            shareButton.innerHTML = '<i class="fas fa-share"></i>';
+            shareButton.title = 'Share Portfolio';
+            shareButton.style.cssText = `
+                position: fixed;
+                bottom: 160px;
+                right: 20px;
+                z-index: 1000;
+            `;
+            
+            shareButton.addEventListener('click', async () => {
+                try {
+                    await navigator.share({
+                        title: 'Yousef Islam - Portfolio',
+                        text: 'Check out this amazing developer portfolio!',
+                        url: window.location.href
+                    });
+                } catch (error) {
+                    console.log('Error sharing:', error);
+                }
+            });
+            
+            document.body.appendChild(shareButton);
+        }
     </script>
 </body>
 </html>
