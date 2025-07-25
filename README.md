@@ -47,4 +47,26 @@ The certificates are loaded dynamically from a JSON file. To add, remove, or mod
 
 ## Deployment
 
-The site is hosted on GitHub Pages and can be accessed at [https://yousefislam-dev.github.io](https://yousefislam-dev.github.io)
+The site is hosted on GitHub Pages with an automated build system using Vite and GitHub Actions.
+
+### Development
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+```
+
+### Build & Deploy
+```bash
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+```
+
+**Live Site**: [https://yousefislam-dev.github.io](https://yousefislam-dev.github.io)
+
+For detailed build system documentation, see [BUILD.md](BUILD.md).
