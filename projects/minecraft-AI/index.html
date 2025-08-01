@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft AI Player - Download & Documentation</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><i class="fas fa-robot"></i> Minecraft AI Player</h1>
+            <p>Intelligent AI Bot for Minecraft - Automated Mining, Building, and Survival</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#download" class="nav-link">Download</a></li>
+                <li><a href="#features" class="nav-link">Features</a></li>
+                <li><a href="#installation" class="nav-link">Installation</a></li>
+                <li><a href="#usage" class="nav-link">Usage Guide</a></li>
+                <li><a href="#documentation" class="nav-link">Documentation</a></li>
+                <li><a href="#support" class="nav-link">Support</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Download Section -->
+        <section id="download" class="section">
+            <div class="container">
+                <h2><i class="fas fa-download"></i> Download Minecraft AI Player</h2>
+                <div class="download-grid">
+                    <div class="download-card">
+                        <h3>Latest Release</h3>
+                        <p class="version">Version 2.1.0</p>
+                        <p class="release-date">Released: July 28, 2025</p>
+                        <ul class="download-features">
+                            <li><i class="fas fa-check"></i> Advanced pathfinding AI</li>
+                            <li><i class="fas fa-check"></i> Automated resource gathering</li>
+                            <li><i class="fas fa-check"></i> Smart building algorithms</li>
+                            <li><i class="fas fa-check"></i> PvP and survival modes</li>
+                        </ul>
+                        <div class="download-buttons">
+                            <button class="btn btn-primary" onclick="downloadFile('minecraft-ai-v2.1.0.zip')">
+                                <i class="fas fa-download"></i> Download ZIP (15.2 MB)
+                            </button>
+                            <button class="btn btn-secondary" onclick="downloadFile('minecraft-ai-v2.1.0.jar')">
+                                <i class="fas fa-file-archive"></i> Download JAR (8.4 MB)
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="download-card">
+                        <h3>Beta Version</h3>
+                        <p class="version">Version 2.2.0-beta</p>
+                        <p class="release-date">Released: July 30, 2025</p>
+                        <ul class="download-features">
+                            <li><i class="fas fa-flask"></i> Experimental neural networks</li>
+                            <li><i class="fas fa-flask"></i> Machine learning improvements</li>
+                            <li><i class="fas fa-flask"></i> Enhanced decision making</li>
+                            <li><i class="fas fa-exclamation-triangle"></i> May contain bugs</li>
+                        </ul>
+                        <div class="download-buttons">
+                            <button class="btn btn-warning" onclick="downloadFile('minecraft-ai-v2.2.0-beta.zip')">
+                                <i class="fas fa-download"></i> Download Beta (16.8 MB)
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="system-requirements">
+                    <h3><i class="fas fa-desktop"></i> System Requirements</h3>
+                    <div class="requirements-grid">
+                        <div class="req-column">
+                            <h4>Minimum Requirements</h4>
+                            <ul>
+                                <li>Minecraft 1.20.0 or later</li>
+                                <li>Java 17 or higher</li>
+                                <li>4 GB RAM</li>
+                                <li>50 MB free disk space</li>
+                                <li>Internet connection (for updates)</li>
+                            </ul>
+                        </div>
+                        <div class="req-column">
+                            <h4>Recommended Requirements</h4>
+                            <ul>
+                                <li>Minecraft 1.21.0 or later</li>
+                                <li>Java 21 or higher</li>
+                                <li>8 GB RAM</li>
+                                <li>100 MB free disk space</li>
+                                <li>Stable internet connection</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="section">
+            <div class="container">
+                <h2><i class="fas fa-star"></i> Features</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-brain"></i>
+                        <h3>Advanced AI</h3>
+                        <p>State-of-the-art artificial intelligence that learns and adapts to different Minecraft environments and challenges.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-pickaxe"></i>
+                        <h3>Auto Mining</h3>
+                        <p>Intelligent mining algorithms that can strip mine, branch mine, and locate specific ores efficiently.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-hammer"></i>
+                        <h3>Smart Building</h3>
+                        <p>Automated construction of houses, farms, and complex structures using blueprint-based building.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Survival Mode</h3>
+                        <p>Complete survival gameplay including food management, mob fighting, and resource optimization.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-route"></i>
+                        <h3>Pathfinding</h3>
+                        <p>Advanced A* pathfinding algorithm with obstacle avoidance and dynamic route optimization.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-cogs"></i>
+                        <h3>Customizable</h3>
+                        <p>Extensive configuration options and plugin system to customize AI behavior for your needs.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Installation Section -->
+        <section id="installation" class="section">
+            <div class="container">
+                <h2><i class="fas fa-wrench"></i> Installation Guide</h2>
+                <div class="installation-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Download the AI Player</h3>
+                            <p>Download the latest version from the download section above. Choose between the stable release or beta version.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Extract Files</h3>
+                            <p>Extract the downloaded ZIP file to your desired location. We recommend creating a dedicated folder like <code>C:\MinecraftAI\</code></p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Install Dependencies</h3>
+                            <p>Ensure you have Java 17+ installed. Run the included <code>install-dependencies.bat</code> script to install required libraries.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>Configure Settings</h3>
+                            <p>Edit the <code>config.json</code> file to set your Minecraft username, server details, and AI behavior preferences.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h3>Launch the AI</h3>
+                            <p>Run <code>MinecraftAI.exe</code> or use <code>java -jar minecraft-ai.jar</code> to start the AI player.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Usage Guide Section -->
+        <section id="usage" class="section">
+            <div class="container">
+                <h2><i class="fas fa-book-open"></i> Usage Guide</h2>
+                <div class="usage-content">
+                    <div class="usage-section">
+                        <h3><i class="fas fa-play"></i> Basic Usage</h3>
+                        <div class="code-block">
+                            <pre><code># Start the AI with default settings
+java -jar minecraft-ai.jar
+
+# Start with custom configuration
+java -jar minecraft-ai.jar --config custom-config.json
+
+# Enable debug mode
+java -jar minecraft-ai.jar --debug --verbose</code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="usage-section">
+                        <h3><i class="fas fa-terminal"></i> Command Line Options</h3>
+                        <table class="command-table">
+                            <tr>
+                                <th>Command</th>
+                                <th>Description</th>
+                                <th>Example</th>
+                            </tr>
+                            <tr>
+                                <td><code>--server &lt;address&gt;</code></td>
+                                <td>Connect to specific server</td>
+                                <td><code>--server mc.hypixel.net</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>--username &lt;name&gt;</code></td>
+                                <td>Set bot username</td>
+                                <td><code>--username MyAIBot</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>--mode &lt;mode&gt;</code></td>
+                                <td>Set AI behavior mode</td>
+                                <td><code>--mode mining</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>--config &lt;file&gt;</code></td>
+                                <td>Use custom config file</td>
+                                <td><code>--config my-config.json</code></td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <div class="usage-section">
+                        <h3><i class="fas fa-gamepad"></i> AI Modes</h3>
+                        <div class="modes-grid">
+                            <div class="mode-card">
+                                <h4>Mining Mode</h4>
+                                <p>Focuses on resource gathering and mining operations. Automatically finds and mines valuable ores.</p>
+                                <code>--mode mining</code>
+                            </div>
+                            <div class="mode-card">
+                                <h4>Building Mode</h4>
+                                <p>Constructs buildings and structures from blueprints or procedurally generated designs.</p>
+                                <code>--mode building</code>
+                            </div>
+                            <div class="mode-card">
+                                <h4>Survival Mode</h4>
+                                <p>Complete survival gameplay including food, shelter, and defense against mobs.</p>
+                                <code>--mode survival</code>
+                            </div>
+                            <div class="mode-card">
+                                <h4>PvP Mode</h4>
+                                <p>Optimized for player vs player combat with advanced fighting algorithms.</p>
+                                <code>--mode pvp</code>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Documentation Section -->
+        <section id="documentation" class="section">
+            <div class="container">
+                <h2><i class="fas fa-file-alt"></i> Documentation</h2>
+                <div class="docs-grid">
+                    <div class="doc-card">
+                        <i class="fas fa-rocket"></i>
+                        <h3>Quick Start Guide</h3>
+                        <p>Get up and running with Minecraft AI Player in under 5 minutes.</p>
+                        <a href="#" class="btn btn-outline">Read Guide</a>
+                    </div>
+                    
+                    <div class="doc-card">
+                        <i class="fas fa-cog"></i>
+                        <h3>Configuration Reference</h3>
+                        <p>Complete reference for all configuration options and settings.</p>
+                        <a href="#" class="btn btn-outline">View Reference</a>
+                    </div>
+                    
+                    <div class="doc-card">
+                        <i class="fas fa-code"></i>
+                        <h3>API Documentation</h3>
+                        <p>Developer documentation for extending and customizing the AI.</p>
+                        <a href="#" class="btn btn-outline">API Docs</a>
+                    </div>
+                    
+                    <div class="doc-card">
+                        <i class="fas fa-puzzle-piece"></i>
+                        <h3>Plugin Development</h3>
+                        <p>Learn how to create custom plugins and extend AI functionality.</p>
+                        <a href="#" class="btn btn-outline">Plugin Guide</a>
+                    </div>
+                    
+                    <div class="doc-card">
+                        <i class="fas fa-bug"></i>
+                        <h3>Troubleshooting</h3>
+                        <p>Common issues and solutions for Minecraft AI Player.</p>
+                        <a href="#" class="btn btn-outline">Troubleshoot</a>
+                    </div>
+                    
+                    <div class="doc-card">
+                        <i class="fas fa-history"></i>
+                        <h3>Changelog</h3>
+                        <p>Version history and release notes for all updates.</p>
+                        <a href="#" class="btn btn-outline">View Changelog</a>
+                    </div>
+                </div>
+                
+                <div class="config-example">
+                    <h3><i class="fas fa-file-code"></i> Sample Configuration</h3>
+                    <div class="code-block">
+                        <pre><code>{
+  "server": {
+    "host": "localhost",
+    "port": 25565,
+    "username": "MinecraftAI",
+    "password": ""
+  },
+  "ai": {
+    "mode": "survival",
+    "difficulty": "normal",
+    "learning_rate": 0.01,
+    "exploration_rate": 0.1
+  },
+  "behavior": {
+    "auto_eat": true,
+    "auto_sleep": true,
+    "avoid_players": false,
+    "chat_responses": true
+  },
+  "mining": {
+    "target_ores": ["diamond", "iron", "gold", "emerald"],
+    "mining_strategy": "branch",
+    "depth_range": [5, 15],
+    "auto_smelt": true
+  },
+  "building": {
+    "blueprint_folder": "./blueprints/",
+    "auto_gather_materials": true,
+    "build_speed": "normal"
+  }
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Support Section -->
+        <section id="support" class="section">
+            <div class="container">
+                <h2><i class="fas fa-life-ring"></i> Support & Community</h2>
+                <div class="support-grid">
+                    <div class="support-card">
+                        <i class="fab fa-github"></i>
+                        <h3>GitHub Repository</h3>
+                        <p>Report bugs, request features, and contribute to the project.</p>
+                        <a href="#" class="btn btn-outline">Visit GitHub</a>
+                    </div>
+                    
+                    <div class="support-card">
+                        <i class="fab fa-discord"></i>
+                        <h3>Discord Community</h3>
+                        <p>Join our Discord server for real-time help and community discussions.</p>
+                        <a href="#" class="btn btn-outline">Join Discord</a>
+                    </div>
+                    
+                    <div class="support-card">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Email Support</h3>
+                        <p>Contact our support team directly for technical assistance.</p>
+                        <a href="mailto:support@minecraftai.com" class="btn btn-outline">Send Email</a>
+                    </div>
+                    
+                    <div class="support-card">
+                        <i class="fas fa-question-circle"></i>
+                        <h3>FAQ</h3>
+                        <p>Find answers to frequently asked questions and common issues.</p>
+                        <a href="#" class="btn btn-outline">View FAQ</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Minecraft AI Player. Open source project under MIT License.</p>
+            <p>Created with ❤️ by the Minecraft AI Community</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

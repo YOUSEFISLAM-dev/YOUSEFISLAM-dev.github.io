@@ -1,0 +1,126 @@
+{
+  "server": {
+    "host": "localhost",
+    "port": 25565,
+    "username": "MinecraftAI",
+    "password": "",
+    "version": "1.21.0",
+    "auto_reconnect": true,
+    "reconnect_delay": 5000
+  },
+  "ai": {
+    "mode": "survival",
+    "difficulty": "normal",
+    "learning_rate": 0.01,
+    "exploration_rate": 0.1,
+    "decision_timeout": 5000,
+    "tick_rate": 20,
+    "memory_limit": 1000
+  },
+  "behavior": {
+    "auto_eat": true,
+    "auto_sleep": true,
+    "avoid_players": false,
+    "chat_responses": true,
+    "aggressive_mode": false,
+    "auto_respawn": true,
+    "follow_player": null
+  },
+  "mining": {
+    "enabled": true,
+    "target_ores": ["diamond", "iron", "gold", "emerald", "redstone", "coal"],
+    "mining_strategy": "branch",
+    "depth_range": [5, 15],
+    "auto_smelt": true,
+    "fortune_enchantment": true,
+    "silk_touch_blocks": ["diamond_ore", "emerald_ore"],
+    "avoid_lava": true,
+    "torch_placement": true
+  },
+  "building": {
+    "enabled": true,
+    "blueprint_folder": "./blueprints/",
+    "auto_gather_materials": true,
+    "build_speed": "normal",
+    "quality_check": true,
+    "creative_mode": false,
+    "foundation_depth": 1,
+    "material_substitution": true
+  },
+  "combat": {
+    "enabled": true,
+    "auto_attack": true,
+    "target_priority": ["zombie", "skeleton", "spider", "creeper", "enderman"],
+    "retreat_health": 30,
+    "use_shield": true,
+    "potion_usage": true,
+    "weapon_priority": ["sword", "axe", "bow"],
+    "armor_management": true
+  },
+  "pathfinding": {
+    "algorithm": "astar",
+    "avoid_mobs": true,
+    "prefer_safe_routes": true,
+    "jump_optimization": true,
+    "water_navigation": true,
+    "max_distance": 1000,
+    "cache_size": 10000,
+    "recalculate_interval": 30
+  },
+  "inventory": {
+    "auto_organize": true,
+    "keep_tools": true,
+    "food_stack_size": 64,
+    "drop_worthless_items": true,
+    "crafting_priority": ["tools", "armor", "food", "blocks"],
+    "storage_chest_location": null
+  },
+  "logging": {
+    "level": "INFO",
+    "file": "logs/minecraft-ai.log",
+    "console": true,
+    "max_file_size": "10MB",
+    "backup_count": 5
+  },
+  "plugins": {
+    "directory": "./plugins/",
+    "auto_load": true,
+    "enabled_plugins": []
+  },
+  "machine_learning": {
+    "enabled": false,
+    "learning_rate": 0.001,
+    "neural_network": {
+      "hidden_layers": [128, 64, 32],
+      "activation": "relu",
+      "optimizer": "adam",
+      "dropout": 0.2
+    },
+    "training_data": "./data/training/",
+    "model_save_interval": 3600,
+    "batch_size": 32
+  },
+  "multi_bot": {
+    "enabled": false,
+    "coordination_server": "localhost:8080",
+    "role": "general",
+    "team_id": "default",
+    "shared_inventory": false,
+    "communication": true,
+    "leader_bot": null
+  },
+  "security": {
+    "whitelist_enabled": false,
+    "whitelisted_players": [],
+    "command_protection": true,
+    "admin_players": [],
+    "auto_logout_on_admin": false
+  },
+  "performance": {
+    "max_memory_usage": "2GB",
+    "gc_optimization": true,
+    "thread_pool_size": 4,
+    "async_pathfinding": true,
+    "chunk_loading_radius": 8
+  }
+}
