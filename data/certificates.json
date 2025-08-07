@@ -1,5 +1,14 @@
 [
   {
+    "id": 4,
+    "title": "Work with environments in Azure Machine Learning",
+    "issuer": "Microsoft",
+    "issueDate": "August 7, 2025",
+    "year": "2025",
+    "imageUrl": "/image/Work with environments in Azure Machine Learning August 7, 2025 | Microsoft.jpg",
+    "verifyUrl": "https://learn.microsoft.com/en-us/users/15216802/achievements?tab=applied-skills-tab"
+  },
+  {
     "id": 1,
     "title": "Data Analysis with Python",
     "issuer": "freeCodeCamp",

@@ -401,6 +401,9 @@
                             <button data-provider="all" class="bg-primary px-4 py-2 rounded-lg text-white text-sm font-medium shadow-md hover:bg-primary-light transition">
                                 All Providers
                             </button>
+                            <button data-provider="Microsoft" class="bg-dark-accent px-4 py-2 rounded-lg text-gray-200 text-sm font-medium shadow-md hover:bg-primary transition">
+                                Microsoft
+                            </button>
                             <button data-provider="freeCodeCamp" class="bg-dark-accent px-4 py-2 rounded-lg text-gray-200 text-sm font-medium shadow-md hover:bg-primary transition">
                                 freeCodeCamp
                             </button>
@@ -500,7 +503,8 @@
                         title.includes('machine learning') || 
                         title.includes('deep learning') ||
                         title.includes('artificial intelligence') ||
-                        title.includes('neural')) {
+                        title.includes('neural') ||
+                        title.includes('azure') && title.includes('machine learning')) {
                         categories.push('ai-ml');
                     }
                     
