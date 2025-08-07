@@ -586,7 +586,10 @@
                         providerInitials.push(initial);
                     }
                 });
-                document.getElementById('cert-provider-icons').textContent = providerInitials.join(' · ');
+                const providerIconsElement = document.getElementById('cert-provider-icons');
+                providerIconsElement.textContent = providerInitials.join(' · ');
+                // Remove any text containing "cC · U"
+                providerIconsElement.textContent = providerIconsElement.textContent.replace(/cC · U/g, '');
                 
                 // Display all certificates initially
                 displayCertificates(certificates);
