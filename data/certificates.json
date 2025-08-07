@@ -1,5 +1,23 @@
 [
   {
+    "id": 6,
+    "title": "DARF Certificate",
+    "issuer": "Microsoft",
+    "issueDate": "August 7, 2025",
+    "year": "2025",
+    "imageUrl": "image/certificates/DARF.png",
+    "verifyUrl": "Certf-PDF/DARF.pdf"
+  },
+  {
+    "id": 5,
+    "title": "Image Analysis Certificate",
+    "issuer": "Microsoft",
+    "issueDate": "August 7, 2025",
+    "year": "2025",
+    "imageUrl": "image/certificates/analyze images.png",
+    "verifyUrl": "Certf-PDF/analyze images.pdf"
+  },
+  {
     "id": 4,
     "title": "Work with environments in Azure Machine Learning",
     "issuer": "Microsoft",
