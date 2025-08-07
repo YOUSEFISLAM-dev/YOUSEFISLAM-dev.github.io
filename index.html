@@ -347,19 +347,70 @@
             <div class="mb-8">
                 <!-- Filter and Sort Controls -->
                 <div class="flex flex-col md:flex-row justify-between items-center gap-4 mb-8">
-                    <div class="cert-filter-buttons flex flex-wrap justify-center gap-2">
-                        <button data-filter="all" class="bg-primary px-4 py-2 rounded-lg text-white text-sm font-medium shadow-md hover:bg-primary-light transition">
-                            All Certificates
-                        </button>
-                        <button data-filter="2025" class="bg-dark-accent px-4 py-2 rounded-lg text-gray-200 text-sm font-medium shadow-md hover:bg-primary transition">
-                            2025
-                        </button>
-                        <button data-filter="2022" class="bg-dark-accent px-4 py-2 rounded-lg text-gray-200 text-sm font-medium shadow-md hover:bg-primary transition">
-                            2022
-                        </button>
+                    <div class="cert-filter-types flex flex-wrap justify-center gap-4 w-full">
+                        <!-- Tabs for Filter Types -->
+                        <div class="filter-tabs flex w-full justify-center mb-2">
+                            <button data-tab="year-tab" class="tab-button bg-primary px-6 py-2 rounded-tl-lg rounded-tr-lg text-white text-sm font-medium shadow-md hover:bg-primary-light transition border-b-2 border-primary">
+                                By Year
+                            </button>
+                            <button data-tab="category-tab" class="tab-button bg-dark-accent px-6 py-2 rounded-tl-lg rounded-tr-lg text-gray-200 text-sm font-medium shadow-md hover:bg-primary transition">
+                                By Category
+                            </button>
+                            <button data-tab="provider-tab" class="tab-button bg-dark-accent px-6 py-2 rounded-tl-lg rounded-tr-lg text-gray-200 text-sm font-medium shadow-md hover:bg-primary transition">
+                                By Provider
+                            </button>
+                        </div>
+                        
+                        <!-- Year Filter Buttons (Default visible) -->
+                        <div id="year-tab" class="filter-content cert-filter-buttons flex flex-wrap justify-center gap-2 w-full">
+                            <button data-filter="all" class="bg-primary px-4 py-2 rounded-lg text-white text-sm font-medium shadow-md hover:bg-primary-light transition">
+                                All Years
+                            </button>
+                            <button data-filter="2025" class="bg-dark-accent px-4 py-2 rounded-lg text-gray-200 text-sm font-medium shadow-md hover:bg-primary transition">
+                                2025
+                            </button>
+                            <button data-filter="2022" class="bg-dark-accent px-4 py-2 rounded-lg text-gray-200 text-sm font-medium shadow-md hover:bg-primary transition">
+                                2022
+                            </button>
+                        </div>
+                        
+                        <!-- Category Filter Buttons (Initially hidden) -->
+                        <div id="category-tab" class="filter-content cert-category-buttons hidden flex flex-wrap justify-center gap-2 w-full">
+                            <button data-category="all" class="bg-primary px-4 py-2 rounded-lg text-white text-sm font-medium shadow-md hover:bg-primary-light transition">
+                                All Categories
+                            </button>
+                            <button data-category="ai-ml" class="bg-dark-accent px-4 py-2 rounded-lg text-gray-200 text-sm font-medium shadow-md hover:bg-primary transition">
+                                AI & Machine Learning
+                            </button>
+                            <button data-category="cybersecurity" class="bg-dark-accent px-4 py-2 rounded-lg text-gray-200 text-sm font-medium shadow-md hover:bg-primary transition">
+                                Cybersecurity & Ethical Hacking
+                            </button>
+                            <button data-category="data" class="bg-dark-accent px-4 py-2 rounded-lg text-gray-200 text-sm font-medium shadow-md hover:bg-primary transition">
+                                Data Analysis & Science
+                            </button>
+                            <button data-category="web" class="bg-dark-accent px-4 py-2 rounded-lg text-gray-200 text-sm font-medium shadow-md hover:bg-primary transition">
+                                Web Development
+                            </button>
+                            <button data-category="networking" class="bg-dark-accent px-4 py-2 rounded-lg text-gray-200 text-sm font-medium shadow-md hover:bg-primary transition">
+                                Networking
+                            </button>
+                        </div>
+                        
+                        <!-- Provider Filter Buttons (Initially hidden) -->
+                        <div id="provider-tab" class="filter-content cert-provider-buttons hidden flex flex-wrap justify-center gap-2 w-full">
+                            <button data-provider="all" class="bg-primary px-4 py-2 rounded-lg text-white text-sm font-medium shadow-md hover:bg-primary-light transition">
+                                All Providers
+                            </button>
+                            <button data-provider="freeCodeCamp" class="bg-dark-accent px-4 py-2 rounded-lg text-gray-200 text-sm font-medium shadow-md hover:bg-primary transition">
+                                freeCodeCamp
+                            </button>
+                            <button data-provider="Udemy" class="bg-dark-accent px-4 py-2 rounded-lg text-gray-200 text-sm font-medium shadow-md hover:bg-primary transition">
+                                Udemy
+                            </button>
+                        </div>
                     </div>
                     
-                    <div class="flex items-center gap-2">
+                    <div class="flex items-center gap-2 mt-4 md:mt-0">
                         <label for="cert-sort" class="text-gray-300 text-sm">Sort by:</label>
                         <select id="cert-sort" class="bg-dark-accent text-gray-200 rounded-lg px-3 py-2 text-sm border-none focus:outline-none focus:ring-2 focus:ring-primary">
                             <option value="newest">Newest First</option>
@@ -376,16 +427,34 @@
                         <p class="text-gray-300 text-sm">Total Certificates</p>
                     </div>
                     <div class="bg-dark-surface p-4 rounded-lg text-center shadow-md transform transition hover:-translate-y-1">
-                        <p class="text-primary-light text-3xl font-bold mb-1" id="cert-year-current">0</p>
-                        <p class="text-gray-300 text-sm">Certificates in 2025</p>
+                        <div class="flex justify-center items-center">
+                            <div>
+                                <p class="text-primary-light text-3xl font-bold mb-1" id="cert-year-current">0</p>
+                                <p class="text-gray-300 text-sm">Certificates in 2025</p>
+                            </div>
+                            <div class="ml-4 border-l border-gray-700 pl-4">
+                                <p class="text-gray-400 text-xl font-bold mb-1" id="cert-year-previous">0</p>
+                                <p class="text-gray-400 text-xs">2022</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="bg-dark-surface p-4 rounded-lg text-center shadow-md transform transition hover:-translate-y-1">
+                    <div class="bg-dark-surface p-4 rounded-lg shadow-md transform transition hover:-translate-y-1">
                         <p class="text-primary-light text-3xl font-bold mb-1" id="cert-providers">0</p>
                         <p class="text-gray-300 text-sm">Certification Providers</p>
+                        <div class="flex justify-center mt-1 flex-wrap">
+                            <span id="cert-provider-icons" class="text-gray-400 text-xs"></span>
+                        </div>
                     </div>
-                    <div class="bg-dark-surface p-4 rounded-lg text-center shadow-md transform transition hover:-translate-y-1">
-                        <p class="text-primary-light text-3xl font-bold mb-1" id="cert-topics">0</p>
-                        <p class="text-gray-300 text-sm">Different Topics</p>
+                    <div class="bg-dark-surface p-4 rounded-lg shadow-md transform transition hover:-translate-y-1">
+                        <p class="text-primary-light text-3xl font-bold mb-1">5</p>
+                        <p class="text-gray-300 text-sm">Topic Categories</p>
+                        <div class="flex justify-center gap-1 mt-1 flex-wrap">
+                            <span class="bg-indigo-500 w-2 h-2 rounded-full"></span>
+                            <span class="bg-red-500 w-2 h-2 rounded-full"></span>
+                            <span class="bg-blue-500 w-2 h-2 rounded-full"></span>
+                            <span class="bg-green-500 w-2 h-2 rounded-full"></span>
+                            <span class="bg-yellow-500 w-2 h-2 rounded-full"></span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -416,33 +485,149 @@
                     throw new Error('Failed to load certificates data');
                 }
                 
-                const certificates = await response.json();
+                let certificates = await response.json();
                 const container = document.getElementById('certificates-container');
                 const noResultsElement = document.getElementById('no-certificates');
+                
+                // Add category information to each certificate based on title keywords
+                certificates = certificates.map(cert => {
+                    // Add categories based on keywords in the title
+                    const title = cert.title.toLowerCase();
+                    let categories = [];
+                    
+                    // AI & Machine Learning category
+                    if (title.includes('ai') || 
+                        title.includes('machine learning') || 
+                        title.includes('deep learning') ||
+                        title.includes('artificial intelligence') ||
+                        title.includes('neural')) {
+                        categories.push('ai-ml');
+                    }
+                    
+                    // Cybersecurity & Ethical Hacking category
+                    if (title.includes('security') || 
+                        title.includes('hack') || 
+                        title.includes('exploit') ||
+                        title.includes('cyber') || 
+                        title.includes('network exploitation') ||
+                        title.includes('penetration')) {
+                        categories.push('cybersecurity');
+                    }
+                    
+                    // Data Analysis & Science category
+                    if (title.includes('data') || 
+                        title.includes('analysis') || 
+                        title.includes('analytics') ||
+                        title.includes('statistics') ||
+                        title.includes('visualization')) {
+                        categories.push('data');
+                    }
+                    
+                    // Web Development category
+                    if (title.includes('web') || 
+                        title.includes('html') || 
+                        title.includes('css') ||
+                        title.includes('javascript') ||
+                        title.includes('front') ||
+                        title.includes('back')) {
+                        categories.push('web');
+                    }
+                    
+                    // Networking category
+                    if (title.includes('network') || 
+                        title.includes('ip') || 
+                        title.includes('addressing') ||
+                        title.includes('subnet') ||
+                        title.includes('protocol')) {
+                        categories.push('networking');
+                    }
+                    
+                    // If no specific category is matched, add a default one based on first word
+                    if (categories.length === 0) {
+                        const firstWord = title.split(' ')[0];
+                        categories.push('other');
+                    }
+                    
+                    return {
+                        ...cert,
+                        categories: categories
+                    };
+                });
                 
                 // Store certificates globally for filtering/sorting
                 window.allCertificates = certificates;
                 
                 // Update statistics
                 document.querySelector('.cert-count').textContent = certificates.length;
+                
+                // Update year statistics
                 document.getElementById('cert-year-current').textContent = 
                     certificates.filter(c => c.year === '2025').length;
+                document.getElementById('cert-year-previous').textContent = 
+                    certificates.filter(c => c.year === '2022').length;
                 
                 // Count unique providers
                 const providers = new Set(certificates.map(c => c.issuer));
                 document.getElementById('cert-providers').textContent = providers.size;
                 
-                // Estimate topics based on titles (simplified approach)
-                const topics = new Set(certificates.map(c => {
-                    const words = c.title.split(' ');
-                    return words[0]; // Just use first word as an approximation
-                }));
-                document.getElementById('cert-topics').textContent = topics.size;
+                // Show provider icons/initials
+                let providerInitials = [];
+                providers.forEach(provider => {
+                    if (provider) {
+                        // Get first letter or first two letters if CamelCase
+                        let initial = provider.charAt(0);
+                        if (provider.match(/[A-Z][a-z]+[A-Z]/)) {
+                            // For CamelCase like "freeCodeCamp", get "fC"
+                            const match = provider.match(/([A-Z])[a-z]+([A-Z])/);
+                            if (match) {
+                                initial = match[1].toLowerCase() + match[2];
+                            }
+                        }
+                        providerInitials.push(initial);
+                    }
+                });
+                document.getElementById('cert-provider-icons').textContent = providerInitials.join(' · ');
                 
                 // Display all certificates initially
                 displayCertificates(certificates);
                 
-                // Set up event listeners for filtering
+                // Set up tab switching functionality
+                document.querySelectorAll('.tab-button').forEach(tab => {
+                    tab.addEventListener('click', (e) => {
+                        // Update active tab styling
+                        document.querySelectorAll('.tab-button').forEach(t => {
+                            t.classList.remove('bg-primary', 'border-b-2', 'border-primary');
+                            t.classList.add('bg-dark-accent');
+                        });
+                        e.target.classList.remove('bg-dark-accent');
+                        e.target.classList.add('bg-primary', 'border-b-2', 'border-primary');
+                        
+                        // Hide all filter content sections
+                        document.querySelectorAll('.filter-content').forEach(content => {
+                            content.classList.add('hidden');
+                        });
+                        
+                        // Show the selected tab content
+                        const tabId = e.target.getAttribute('data-tab');
+                        document.getElementById(tabId).classList.remove('hidden');
+                        
+                        // Reset to showing all certificates when switching tabs
+                        displayCertificates(certificates);
+                        
+                        // Reset button styling in each tab
+                        document.querySelectorAll(`#${tabId} button`).forEach((btn, index) => {
+                            if (index === 0) { // First button (All X) should be active
+                                btn.classList.remove('bg-dark-accent');
+                                btn.classList.add('bg-primary');
+                            } else {
+                                btn.classList.remove('bg-primary');
+                                btn.classList.add('bg-dark-accent');
+                            }
+                        });
+                    });
+                });
+                
+                // Set up event listeners for year filtering
                 document.querySelectorAll('.cert-filter-buttons button').forEach(button => {
                     button.addEventListener('click', (e) => {
                         // Update active button styling
@@ -454,7 +639,39 @@
                         e.target.classList.add('bg-primary');
                         
                         const filter = e.target.getAttribute('data-filter');
-                        filterCertificates(filter);
+                        filterCertificatesByYear(filter);
+                    });
+                });
+                
+                // Set up event listeners for category filtering
+                document.querySelectorAll('.cert-category-buttons button').forEach(button => {
+                    button.addEventListener('click', (e) => {
+                        // Update active button styling
+                        document.querySelectorAll('.cert-category-buttons button').forEach(btn => {
+                            btn.classList.remove('bg-primary');
+                            btn.classList.add('bg-dark-accent');
+                        });
+                        e.target.classList.remove('bg-dark-accent');
+                        e.target.classList.add('bg-primary');
+                        
+                        const category = e.target.getAttribute('data-category');
+                        filterCertificatesByCategory(category);
+                    });
+                });
+                
+                // Set up event listeners for provider filtering
+                document.querySelectorAll('.cert-provider-buttons button').forEach(button => {
+                    button.addEventListener('click', (e) => {
+                        // Update active button styling
+                        document.querySelectorAll('.cert-provider-buttons button').forEach(btn => {
+                            btn.classList.remove('bg-primary');
+                            btn.classList.add('bg-dark-accent');
+                        });
+                        e.target.classList.remove('bg-dark-accent');
+                        e.target.classList.add('bg-primary');
+                        
+                        const provider = e.target.getAttribute('data-provider');
+                        filterCertificatesByProvider(provider);
                     });
                 });
                 
@@ -466,6 +683,8 @@
                 
                 // Reset filter button
                 document.getElementById('reset-filter').addEventListener('click', () => {
+                    // Show the year tab and select "All Years"
+                    document.querySelector('[data-tab="year-tab"]').click();
                     document.querySelector('button[data-filter="all"]').click();
                 });
                 
@@ -502,6 +721,26 @@
             container.classList.remove('hidden');
             noResultsElement.classList.add('hidden');
             
+            // Get category names for display
+            const categoryNames = {
+                'ai-ml': 'AI & ML',
+                'cybersecurity': 'Security',
+                'data': 'Data Science',
+                'web': 'Web Dev',
+                'networking': 'Networking',
+                'other': 'Other'
+            };
+            
+            // Category colors
+            const categoryColors = {
+                'ai-ml': 'bg-indigo-500',
+                'cybersecurity': 'bg-red-500',
+                'data': 'bg-blue-500',
+                'web': 'bg-green-500',
+                'networking': 'bg-yellow-500',
+                'other': 'bg-gray-500'
+            };
+            
             // Display certificates with staggered animation
             certificates.forEach((certificate, index) => {
                 const certificateCard = document.createElement('div');
@@ -510,6 +749,18 @@
                 certificateCard.style.transitionDelay = `${index * 0.1}s`;
                 certificateCard.dataset.year = certificate.year;
                 certificateCard.dataset.issuer = certificate.issuer;
+                
+                // Create category badges HTML
+                let categoryBadgesHTML = '';
+                if (certificate.categories && certificate.categories.length > 0) {
+                    certificate.categories.forEach(category => {
+                        categoryBadgesHTML += `
+                            <span class="${categoryColors[category] || 'bg-gray-500'} text-white text-xs py-1 px-2 rounded-full mr-1 mb-1">
+                                ${categoryNames[category] || 'Other'}
+                            </span>
+                        `;
+                    });
+                }
                 
                 certificateCard.innerHTML = `
                     <div class="relative mb-4 bg-dark-accent/30 rounded-lg overflow-hidden group">
@@ -529,6 +780,9 @@
                             ${certificate.issuer || 'Unknown Provider'}
                         </span>
                     </div>
+                    <div class="flex flex-wrap mb-3">
+                        ${categoryBadgesHTML}
+                    </div>
                     <div class="flex justify-between items-center">
                         <span class="text-xs text-gray-400">Issued ${certificate.issueDate}</span>
                         <a href="${certificate.verifyUrl}" target="_blank" class="text-primary-light hover:text-primary flex items-center gap-1 transition">
@@ -547,13 +801,43 @@
             });
         }
         
-        // Function to filter certificates
-        function filterCertificates(filter) {
+        // Function to filter certificates by year
+        function filterCertificatesByYear(filter) {
             const certificates = window.allCertificates;
             let filtered = certificates;
             
             if (filter !== 'all') {
                 filtered = certificates.filter(cert => cert.year === filter);
+            }
+            
+            // Apply current sort
+            const sortSelect = document.getElementById('cert-sort');
+            sortCertificates(sortSelect.value, filtered);
+        }
+        
+        // Function to filter certificates by category
+        function filterCertificatesByCategory(category) {
+            const certificates = window.allCertificates;
+            let filtered = certificates;
+            
+            if (category !== 'all') {
+                filtered = certificates.filter(cert => 
+                    cert.categories && cert.categories.includes(category)
+                );
+            }
+            
+            // Apply current sort
+            const sortSelect = document.getElementById('cert-sort');
+            sortCertificates(sortSelect.value, filtered);
+        }
+        
+        // Function to filter certificates by provider
+        function filterCertificatesByProvider(provider) {
+            const certificates = window.allCertificates;
+            let filtered = certificates;
+            
+            if (provider !== 'all') {
+                filtered = certificates.filter(cert => cert.issuer === provider);
             }
             
             // Apply current sort
