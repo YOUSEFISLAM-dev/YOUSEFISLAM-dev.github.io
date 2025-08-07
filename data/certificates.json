@@ -1,19 +1,21 @@
 [
   {
     "id": 6,
-    "title": "DARF Certificate",
+    "title": "Detect, analyze, and recognize faces With AI",
     "issuer": "Microsoft",
     "issueDate": "August 7, 2025",
     "year": "2025",
+    "category": "AI & Machine Learning",
     "imageUrl": "image/certificates/DARF.png",
     "verifyUrl": "Certf-PDF/DARF.pdf"
   },
   {
     "id": 5,
-    "title": "Image Analysis Certificate",
+    "title": "Image Analysis AI",
     "issuer": "Microsoft",
     "issueDate": "August 7, 2025",
     "year": "2025",
+    "category": "AI & Machine Learning",
     "imageUrl": "image/certificates/analyze images.png",
     "verifyUrl": "Certf-PDF/analyze images.pdf"
   },
