@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robux Gift Card</title>
+    <style>
+        * {
+            margin: 0;
+            padding:  0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background:  linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%);
+            font-family:  'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        h1 {
+            color: #fff;
+            margin-bottom: 30px;
+            text-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+        }
+
+        .instruction {
+            color: #aaa;
+            margin-bottom: 20px;
+            font-size:  14px;
+        }
+
+        .card-container {
+            width: 450px;
+            height: 280px;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .card {
+            width: 100%;
+            height:  100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition:  transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .card-container:hover .card {
+            transform: rotateY(180deg);
+        }
+
+        .card-container.flipped .card {
+            transform: rotateY(180deg);
+        }
+
+        .card-front,
+        .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5),
+                        0 0 30px rgba(255, 0, 0, 0.2);
+        }
+
+        .card-front img,
+        .card-back img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-back {
+            transform: rotateY(180deg);
+            position: relative;
+        }
+
+        .card-back img {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .code-overlay {
+            position: absolute;
+            bottom: 110px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #c0c0c0, #e8e8e8, #c0c0c0);
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 18px;
+            font-weight: bold;
+            color: #1a1a1a;
+            letter-spacing: 3px;
+            box-shadow: inset 0 2px 4px rgba(255,255,255,0.5),
+                        inset 0 -2px 4px rgba(0,0,0,0.2),
+                        0 4px 10px rgba(0,0,0,0.3);
+            border: 2px solid #888;
+            min-width: 280px;
+            text-align: center;
+        }
+
+        .glow-effect {
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5),
+                            0 0 30px rgba(255, 0, 0, 0.2);
+            }
+            to {
+                box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5),
+                            0 0 50px rgba(0, 255, 0, 0.4);
+            }
+        }
+
+        .click-hint {
+            color: #00ff88;
+            margin-top: 20px;
+            font-size: 12px;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎮 Your Robux Gift Card 🎮</h1>
+        <p class="instruction">Hover or click the card to flip it and reveal your code!</p>
+        
+        <div class="card-container" id="cardContainer">
+            <div class="card glow-effect">
+                <!-- Front of card - 400 Robux image -->
+                <div class="card-front">
+                    <img src="Remove Me!!.png" alt="400 Robux Gift Card">
+                </div>
+                
+                <!-- Back of card - Redemption instructions -->
+                <div class="card-back">
+                    <img src="Remove Me!! (1).png" alt="Redemption Instructions">
+                    <div class="code-overlay" id="codeDisplay">
+                        XXXX-XXXX-XXXX
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <p class="click-hint">💡 Click to lock the flip position</p>
+    </div>
+
+    <script>
+        // Click to toggle flip
+        const cardContainer = document.getElementById('cardContainer');
+        cardContainer.addEventListener('click', function() {
+            this.classList.toggle('flipped');
+        });
+
+        // Load code from code.txt file
+        fetch('code.txt')
+            .then(response => response.text())
+            .then(code => {
+                document. getElementById('codeDisplay').textContent = code. trim();
+            })
+            .catch(error => {
+                console.error('Error loading code:', error);
+                document.getElementById('codeDisplay').textContent = 'CODE-NOT-FOUND';
+            });
+    </script>
+</body>
+</html>
