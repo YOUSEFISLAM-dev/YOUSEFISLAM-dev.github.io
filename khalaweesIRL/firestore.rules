@@ -1,0 +1,89 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function roomRef(code) {
+      return /databases/$(database)/documents/rooms/$(code);
+    }
+
+    function playerRef(code, uid) {
+      return /databases/$(database)/documents/rooms/$(code)/players/$(uid);
+    }
+
+    function isHost(code) {
+      return signedIn() && get(roomRef(code)).data.hostId == request.auth.uid;
+    }
+
+    function isRoomPlayer(code) {
+      return signedIn() && exists(playerRef(code, request.auth.uid));
+    }
+
+    function isSeeker(code) {
+      let room = get(roomRef(code)).data;
+      return signedIn()
+        && (room.seekerId == request.auth.uid
+          || (exists(playerRef(code, request.auth.uid)) && get(playerRef(code, request.auth.uid)).data.role == "seeker"));
+    }
+
+    function changedKeys() {
+      return request.resource.data.diff(resource.data).changedKeys();
+    }
+
+    function seekerShieldConsumeAllowed() {
+      return changedKeys().hasOnly(["shieldUses"])
+        && request.resource.data.shieldUses is int
+        && resource.data.shieldUses is int
+        && request.resource.data.shieldUses == resource.data.shieldUses - 1;
+    }
+
+    function seekerCatchAllowed() {
+      return changedKeys().hasOnly([
+          "status",
+          "role",
+          "qrToken",
+          "caughtAt",
+          "caughtBy",
+          "caughtByName",
+          "reviveAtMs",
+          "ghostUntilMs",
+          "shieldUses",
+          "ghostUses",
+          "alertUses"
+        ])
+        && request.resource.data.caughtBy == request.auth.uid;
+    }
+
+    match /users/{uid} {
+      allow read, write: if signedIn() && request.auth.uid == uid;
+    }
+
+    match /rooms/{code} {
+      allow read: if signedIn();
+      allow create: if signedIn()
+        && request.resource.data.hostId == request.auth.uid
+        && request.resource.data.code == code;
+      allow update: if isHost(code);
+      allow delete: if isHost(code);
+
+      match /players/{uid} {
+        allow read: if signedIn();
+        allow create: if signedIn() && request.auth.uid == uid;
+        allow delete: if signedIn() && request.auth.uid == uid;
+        allow update: if signedIn() && (
+          request.auth.uid == uid
+          || isHost(code)
+          || (isSeeker(code) && request.auth.uid != uid && (seekerCatchAllowed() || seekerShieldConsumeAllowed()))
+        );
+      }
+
+      match /events/{eventId} {
+        allow read: if signedIn() && isRoomPlayer(code);
+        allow create: if signedIn() && isRoomPlayer(code);
+        allow update, delete: if false;
+      }
+    }
+  }
+}

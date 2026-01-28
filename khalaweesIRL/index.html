@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#f0f2f5" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <title>خلاوييص؟ IRL</title>
+    <link rel="icon" href="./icon.png" />
+    <link rel="apple-touch-icon" href="./icon.png" />
+    <link rel="manifest" href="./manifest.json" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+    <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+  </head>
+  <body>
+    <div id="bg"></div>
+    <header class="topbar">
+      <div class="brand">
+        <img class="brand__icon" src="./icon.svg" alt="خلاوييص؟ IRL" />
+        <div class="brand__text">
+          <div class="brand__title">خلاوييص؟ IRL</div>
+          <div class="brand__subtitle" id="subtitle">استغماية واقعية</div>
+        </div>
+      </div>
+      <button class="ghost-btn" id="btnHeaderSettings" type="button" aria-label="الإعدادات">⚙️</button>
+    </header>
+ 
+    <main class="container">
+      <section class="card view" data-view="home">
+        <h1 class="h1">يلا نلعب</h1>
+        <div class="field">
+          <label class="label" for="nickname">الاسم (Nickname)</label>
+          <input class="input" id="nickname" maxlength="18" placeholder="اكتب اسمك" autocomplete="nickname" />
+        </div>
+        <div class="field">
+          <div class="label">الأفاتار</div>
+          <div id="avatarGrid" class="avatar-grid" role="list"></div>
+        </div>
+        <button class="btn btn-primary" id="btnEnter" type="button">يلا نلعب! 🎮</button>
+        <div class="hint" id="firebaseHint"></div>
+      </section>
+ 
+      <section class="card view hidden" data-view="menu">
+        <h2 class="h2">أهلاً <span id="meName"></span></h2>
+        <div class="pill" id="menuCoins"></div>
+        <div class="menu-grid">
+          <button class="btn btn-primary" id="btnCreateRoom" type="button">إنشاء غرفة جديدة 🏠</button>
+          <button class="btn" id="btnJoinRoom" type="button">انضمام لغرفة 🚪</button>
+          <button class="btn" id="btnStore" type="button">المتجر 🛒</button>
+          <button class="btn" id="btnStats" type="button">إحصائياتي 📊</button>
+          <button class="btn" id="btnSettings" type="button">الإعدادات ⚙️</button>
+        </div>
+ 
+        <div class="divider"></div>
+
+        <div class="missions">
+          <div class="missions-top">
+            <div class="h2">مهام اليوم</div>
+            <div class="pill">🔥 Streak: <span id="dailyStreak">0</span></div>
+          </div>
+          <div id="missionsList" class="missions-list"></div>
+        </div>
+ 
+        <div id="joinPanel" class="join-panel hidden">
+          <div class="field">
+            <label class="label" for="roomCodeInput">كود الغرفة (6)</label>
+            <input class="input" id="roomCodeInput" maxlength="6" placeholder="ABC123" autocapitalize="characters" />
+          </div>
+          <button class="btn btn-primary" id="btnJoinConfirm" type="button">دخول</button>
+        </div>
+      </section>
+ 
+      <section class="card view hidden" data-view="lobby">
+        <div class="lobby-top">
+          <div class="room-code">
+            <div class="room-code__label">كود الغرفة</div>
+            <div class="room-code__value" id="roomCodeText"></div>
+          </div>
+          <button class="btn btn-small" id="btnCopyRoom" type="button">نسخ</button>
+        </div>
+ 
+        <div class="pill" id="hostPill"></div>
+        <div class="players-head">
+          <div class="h2">اللاعبين</div>
+          <div class="muted" id="playersCount"></div>
+        </div>
+        <div id="playersList" class="players"></div>
+ 
+        <div class="divider"></div>
+ 
+        <div id="hostSettings" class="host-settings hidden">
+          <div class="h2">إعدادات اللعبة</div>
+          <div class="form-grid">
+            <div class="field">
+              <label class="label" for="modeSelect">وضع اللعبة</label>
+              <select class="input" id="modeSelect">
+                <option value="classic">Classic</option>
+                <option value="endless">Endless</option>
+                <option value="infected">Infected</option>
+              </select>
+            </div>
+            <div class="field">
+              <label class="label" for="hideTimeSelect">وقت الاختباء</label>
+              <select class="input" id="hideTimeSelect">
+                <option value="30">30ث</option>
+                <option value="60" selected>60ث</option>
+                <option value="90">90ث</option>
+                <option value="120">120ث</option>
+              </select>
+            </div>
+            <div class="field">
+              <label class="label" for="gameTimeSelect">وقت اللعبة</label>
+              <select class="input" id="gameTimeSelect">
+                <option value="300">5د</option>
+                <option value="600" selected>10د</option>
+                <option value="900">15د</option>
+                <option value="1200">20د</option>
+              </select>
+            </div>
+            <div class="field">
+              <label class="label" for="powerupsToggle">Power-ups</label>
+              <select class="input" id="powerupsToggle">
+                <option value="on" selected>مفعلة</option>
+                <option value="off">مقفولة</option>
+              </select>
+            </div>
+          </div>
+        </div>
+ 
+        <div class="actions">
+          <button class="btn btn-primary" id="btnReady" type="button">أنا جاهز ✅</button>
+          <button class="btn btn-gold hidden" id="btnStart" type="button">ابدأ اللعبة 🎮</button>
+          <button class="btn btn-danger" id="btnLeave" type="button">خروج من الغرفة 🚪</button>
+        </div>
+      </section>
+ 
+      <section class="card view hidden" data-view="hiding">
+        <div class="phase-title" id="hidingTitle"></div>
+        <div class="big-timer" id="hidingTimer">--</div>
+        <div class="hint" id="hidingHint"></div>
+      </section>
+ 
+      <section class="card view hidden" data-view="play-hider">
+        <div class="play-top">
+          <div class="timer-pill">⏳ <span id="playTimerHider">--</span></div>
+          <div class="timer-pill">🧍‍♂️ باقي: <span id="aliveCountHider">--</span></div>
+          <button class="btn btn-small hidden" id="btnEndGameHider" type="button">🛑 إنهاء</button>
+        </div>
+        <div class="qr-wrap">
+          <div id="qrBox" class="qr-box"></div>
+        </div>
+        <div class="me-under">
+          <div class="me-name" id="meNameUnderQr"></div>
+          <div class="warn">خبّي الموبايل! 📱</div>
+        </div>
+        <div id="hiderPowerups" class="powerups hidden"></div>
+      </section>
+ 
+      <section class="card view hidden" data-view="play-seeker">
+        <div class="play-top">
+          <div class="timer-pill">⏳ <span id="playTimerSeeker">--</span></div>
+          <div class="timer-pill">🎯 مسكت: <span id="caughtCountSeeker">--</span>/<span id="totalCountSeeker">--</span></div>
+          <button class="btn btn-small hidden" id="btnEndGameSeeker" type="button">🛑 إنهاء</button>
+        </div>
+        <div class="scanner-wrap">
+          <div id="scanner" class="scanner"></div>
+          <div class="reticle"></div>
+        </div>
+        <div id="scannerControls" class="scanner-controls hidden">
+          <div class="scanner-controls__row">
+            <button class="btn btn-small" id="btnSwitchCamera" type="button">🔁 كاميرا</button>
+            <button class="btn btn-small hidden" id="btnTorch" type="button">🔦 فلاش</button>
+          </div>
+          <div class="scanner-controls__row hidden" id="zoomRow">
+            <div class="label">Zoom</div>
+            <input id="zoomSlider" class="zoom-slider" type="range" min="1" max="3" step="0.1" value="1" />
+          </div>
+        </div>
+        <div id="cameraGate" class="camera-gate hidden">
+          <div class="hint" id="cameraGateHint"></div>
+          <button class="btn btn-primary" id="btnStartCamera" type="button">فتح الكاميرا 📷</button>
+        </div>
+        <div class="hint">وجّه على الـ QR! 🎯</div>
+        <div id="seekerPowerups" class="powerups hidden"></div>
+        <div class="divider"></div>
+        <div class="h2">المتمسكين</div>
+        <div id="caughtList" class="caught-list"></div>
+      </section>
+ 
+      <section class="card view hidden" data-view="caught">
+        <div class="phase-title">💀 اتمسكت!</div>
+        <div class="hint">مسكك: <span id="caughtByName"></span></div>
+        <button class="btn" id="btnSpectate" type="button">تفرج على اللعبة 👀</button>
+      </section>
+ 
+      <section class="card view hidden" data-view="results">
+        <div class="phase-title" id="winnerTitle"></div>
+        <canvas id="confetti" class="confetti"></canvas>
+        <div class="results-box">
+          <div class="h2">تفاصيل</div>
+          <div id="resultsDetails" class="results-details"></div>
+        </div>
+        <div class="results-box">
+          <div class="h2">المكافآت</div>
+          <div id="resultsRewards" class="results-details"></div>
+        </div>
+        <div class="actions">
+          <button class="btn btn-primary" id="btnPlayAgain" type="button">العب تاني 🔄</button>
+          <button class="btn" id="btnNewRoom" type="button">غرفة جديدة 🏠</button>
+          <button class="btn" id="btnHome" type="button">الصفحة الرئيسية 🏠</button>
+        </div>
+      </section>
+ 
+      <section class="card view hidden" data-view="settings">
+        <div class="h2">الإعدادات</div>
+        <div class="field">
+          <label class="label" for="uidInput">UID (للاختبار في Firebase)</label>
+          <input class="input" id="uidInput" readonly />
+        </div>
+        <button class="btn" id="btnCopyUid" type="button">نسخ UID</button>
+        <div class="field">
+          <label class="label" for="nicknameSettings">الاسم</label>
+          <input class="input" id="nicknameSettings" maxlength="18" />
+        </div>
+        <div class="field">
+          <div class="label">الأفاتار</div>
+          <div id="avatarGridSettings" class="avatar-grid" role="list"></div>
+        </div>
+        <button class="btn btn-primary" id="btnSaveSettings" type="button">حفظ</button>
+        <button class="btn" id="btnBackFromSettings" type="button">رجوع</button>
+      </section>
+ 
+      <section class="card view hidden" data-view="stats">
+        <div class="h2">إحصائياتي</div>
+        <div id="statsBox" class="stats-box"></div>
+        <button class="btn" id="btnBackFromStats" type="button">رجوع</button>
+      </section>
+
+      <section class="card view hidden" data-view="store">
+        <div class="store-top">
+          <div class="h2">المتجر 🛒</div>
+          <div class="pill">🪙 <span id="storeCoins">0</span></div>
+        </div>
+        <div class="store-tabs" role="tablist" aria-label="أقسام المتجر">
+          <button class="chip chip--active" id="storeTabFrames" type="button">إطارات</button>
+          <button class="chip" id="storeTabNameColors" type="button">ألوان الاسم</button>
+          <button class="chip" id="storeTabBadges" type="button">شارات</button>
+          <button class="chip" id="storeTabQrThemes" type="button">ثيم QR</button>
+          <button class="chip" id="storeTabConfetti" type="button">احتفال</button>
+        </div>
+        <div id="storeList" class="store-list"></div>
+        <button class="btn" id="btnBackFromStore" type="button">رجوع</button>
+      </section>
+    </main>
+ 
+    <div id="installBanner" class="install-banner hidden">
+      <div class="install-banner__card">
+        <img class="install-banner__icon" src="./icon.svg" alt="Khalawees" />
+        <div class="install-banner__text">
+          <div class="install-banner__title">ثبت اللعبة</div>
+          <div class="install-banner__subtitle">خلاوييص؟ IRL (PWA)</div>
+        </div>
+        <button class="btn btn-small btn-primary" id="btnInstall" type="button">تثبيت</button>
+        <button class="ghost-btn" id="btnInstallClose" type="button" aria-label="إغلاق">✕</button>
+      </div>
+      <div id="installHelp" class="install-banner__help hidden"></div>
+    </div>
+
+    <div id="toast" class="toast hidden"></div>
+    <div id="alertOverlay" class="alert-overlay hidden" role="alert" aria-live="assertive">
+      <div class="alert-overlay__card">
+        <div class="alert-overlay__title">📢 ALERT!</div>
+        <div class="alert-overlay__hint">في حد استخدم الـ Alert Power-up</div>
+      </div>
+    </div>
+ 
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

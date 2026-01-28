@@ -1,0 +1,27 @@
+{
+  "name": "خلاوييص؟ IRL",
+  "short_name": "Khalawees",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f0f2f5",
+  "theme_color": "#f0f2f5",
+  "description": "استغماية واقعية (Hide & Seek) مع QR و Firebase",
+  "dir": "rtl",
+  "lang": "ar",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "./icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
