@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arab Contractors | المقاولون العرب - Building the Future Since 1955</title>
+    <meta name="description" content="Official website of Arab Contractors (Osman Ahmed Osman & Co.), one of the leading construction companies in the Middle East and Africa.">
+    <meta name="keywords" content="Arab Contractors, المقاولون العرب, construction, engineering, infrastructure, Middle East, Africa, building, projects">
+    <meta name="author" content="Arab Contractors">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ais-dev-a7v5tkqjchqiehcescqkvf-174852774225.europe-west1.run.app/">
+    <meta property="og:title" content="Arab Contractors | المقاولون العرب - Building the Future Since 1955">
+    <meta property="og:description" content="Official website of Arab Contractors (Osman Ahmed Osman & Co.), one of the leading construction companies in the Middle East and Africa.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&h=630&fit=crop">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://ais-dev-a7v5tkqjchqiehcescqkvf-174852774225.europe-west1.run.app/">
+    <meta property="twitter:title" content="Arab Contractors | المقاولون العرب - Building the Future Since 1955">
+    <meta property="twitter:description" content="Official website of Arab Contractors (Osman Ahmed Osman & Co.), one of the leading construction companies in the Middle East and Africa.">
+    <meta property="twitter:image" content="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&h=630&fit=crop">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://www.arabcont.com/favicon.ico">
+    <script>
+      (function() {
+        const savedTheme = localStorage.getItem('theme');
+        const theme = savedTheme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.classList.add(theme + '-theme');
+      })();
+    </script>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header z-1000">
+      <div class="container flex-between h-full">
+        <a href="index.html" class="logo flex-center">
+          <svg width="180" height="60" viewBox="0 0 180 60" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="30" cy="30" r="25" fill="#003366" />
+            <text x="30" y="38" font-family="Arial" font-size="24" fill="white" text-anchor="middle" font-weight="bold">AC</text>
+            <text x="65" y="28" font-family="Arial" font-size="18" fill="#003366" font-weight="bold">ARAB CONTRACTORS</text>
+            <text x="65" y="48" font-family="Arial" font-size="14" fill="#E8A317" font-weight="bold">المقاولون العرب</text>
+          </svg>
+        </a>
+
+        <nav class="nav-desktop">
+          <ul class="flex gap-xl">
+            <li><a href="index.html" class="nav-link active" data-i18n="nav_home">Home</a></li>
+            <li><a href="about.html" class="nav-link" data-i18n="nav_about">About</a></li>
+            <li class="has-mega-menu">
+              <a href="projects.html" class="nav-link" data-i18n="nav_projects">Projects ▾</a>
+              <div class="mega-menu">
+                <div class="container grid grid-3">
+                  <div>
+                    <h4 class="mb-md" data-i18n="nav_by_sector">By Sector</h4>
+                    <ul>
+                      <li><a href="projects.html?sector=infrastructure" data-i18n="sector_infrastructure">Infrastructure</a></li>
+                      <li><a href="projects.html?sector=buildings" data-i18n="sector_buildings">Buildings</a></li>
+                      <li><a href="projects.html?sector=energy" data-i18n="sector_energy">Energy</a></li>
+                      <li><a href="projects.html?sector=water" data-i18n="sector_water">Water</a></li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="mb-md" data-i18n="nav_by_region">By Region</h4>
+                    <ul>
+                      <li><a href="projects.html?region=egypt" data-i18n="region_egypt">Egypt</a></li>
+                      <li><a href="projects.html?region=africa" data-i18n="region_africa">Africa</a></li>
+                      <li><a href="projects.html?region=middle-east" data-i18n="region_middle_east">Middle East</a></li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="mb-md" data-i18n="nav_featured">Featured</h4>
+                    <div class="featured-nav-item">
+                      <img src="https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=400" alt="Rod El Farag Bridge" referrerPolicy="no-referrer">
+                      <p class="text-small mt-sm" data-i18n="project_1_title">Rod El Farag Axis Bridge</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li><a href="sectors.html" class="nav-link" data-i18n="nav_sectors">Sectors</a></li>
+            <li><a href="gallery.html" class="nav-link" data-i18n="nav_gallery">Gallery</a></li>
+            <li><a href="news.html" class="nav-link" data-i18n="nav_news">News</a></li>
+            <li><a href="contact.html" class="nav-link" data-i18n="nav_contact">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="nav-actions flex items-center gap-md">
+          <div id="theme-toggle-root"></div>
+          <button class="search-trigger"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+          <button class="lang-toggle notranslate">AR</button>
+          <button class="nav-mobile-toggle lg:hidden">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Drawer -->
+    <div class="nav-drawer">
+      <div class="drawer-header flex-between p-lg">
+        <span class="text-small" data-i18n="menu">MENU</span>
+        <button class="nav-close"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+      </div>
+      <ul class="drawer-links p-lg">
+        <li><a href="index.html" data-i18n="nav_home">Home</a></li>
+        <li><a href="about.html" data-i18n="nav_about">About</a></li>
+        <li><a href="projects.html" data-i18n="nav_projects">Projects</a></li>
+        <li><a href="sectors.html" data-i18n="nav_sectors">Sectors</a></li>
+        <li><a href="gallery.html" data-i18n="nav_gallery">Gallery</a></li>
+        <li><a href="news.html" data-i18n="nav_news">News</a></li>
+        <li><a href="contact.html" data-i18n="nav_contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <main>
+      <!-- Hero Section -->
+      <section class="hero relative">
+        <div class="hero-slider h-full">
+          <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920');">
+            <div class="overlay"></div>
+            <div class="container h-full flex-center text-center">
+              <div class="hero-content animate-fade-up">
+                <span class="text-small text-gold mb-md block" data-i18n="hero_subtitle">SINCE 1955 — BUILDING THE FUTURE</span>
+                <h1 data-i18n="hero_title">Engineering Tomorrow's Infrastructure Today</h1>
+                <p class="text-white mb-xl max-w-7xl mx-auto" data-i18n="hero_desc">One of the largest international construction companies, delivering excellence across the Middle East and Africa.</p>
+                <div class="hero-actions flex flex-wrap flex-center gap-md">
+                  <a href="projects.html" class="btn btn-primary" data-i18n="btn_explore">Our Projects</a>
+                  <a href="contact.html" class="btn btn-outline" data-i18n="btn_story">Contact Us</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1541888086225-f6404f45af53?w=1920');">
+            <div class="overlay"></div>
+            <div class="container h-full flex-center text-center">
+              <div class="hero-content animate-fade-up">
+                <span class="text-small text-gold mb-md block" data-i18n="hero_subtitle_2">INNOVATION AT CORE</span>
+                <h1 data-i18n="hero_title_2">Pioneering Sustainable Construction</h1>
+                <p class="text-white mb-xl max-w-7xl mx-auto" data-i18n="hero_desc_2">Integrating advanced technologies and green building practices to create a better world for future generations.</p>
+                <div class="hero-actions flex flex-wrap flex-center gap-md">
+                  <a href="projects.html" class="btn btn-primary" data-i18n="btn_portfolio">Our Projects</a>
+                  <a href="contact.html" class="btn btn-outline" data-i18n="btn_contact">Contact Us</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1581094288338-2314dddb7ece?w=1920');">
+            <div class="overlay"></div>
+            <div class="container h-full flex-center text-center">
+              <div class="hero-content animate-fade-up">
+                <span class="text-small text-gold mb-md block" data-i18n="hero_subtitle_3">GLOBAL EXPERTISE</span>
+                <h1 data-i18n="hero_title_3">Connecting Continents & Communities</h1>
+                <p class="text-white mb-xl max-w-7xl mx-auto" data-i18n="hero_desc_3">From iconic bridges to expansive transport networks, we build the arteries of modern civilization.</p>
+                <div class="flex flex-wrap flex-center gap-md">
+                  <a href="projects.html" class="btn btn-primary" data-i18n="btn_sectors">Our Projects</a>
+                  <a href="contact.html" class="btn btn-outline" data-i18n="btn_contact">Contact Us</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="scroll-indicator animate-bounce">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg>
+        </div>
+      </section>
+
+      <!-- About Overview -->
+      <section class="section">
+        <div class="container grid grid-2 items-center">
+          <div class="reveal reveal-left">
+            <span class="text-small text-gold" data-i18n="about_subtitle">WHO WE ARE</span>
+            <h2 data-i18n="about_title">Seven Decades of Construction Excellence</h2>
+            <p class="text-body mb-lg" data-i18n="about_desc">Founded in 1955 by Osman Ahmed Osman, Arab Contractors has grown into a global engineering powerhouse. We are committed to delivering high-quality infrastructure that shapes nations and empowers communities.</p>
+            <ul class="mb-xl">
+              <li class="flex items-center gap-sm mb-sm"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8A317" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> <span data-i18n="about_list_1">Leading construction company in MEA</span></li>
+              <li class="flex items-center gap-sm mb-sm"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8A317" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> <span data-i18n="about_list_2">70+ years of engineering heritage</span></li>
+              <li class="flex items-center gap-sm mb-sm"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8A317" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> <span data-i18n="about_list_3">Operating in over 30 countries</span></li>
+            </ul>
+            <a href="about.html" class="btn btn-primary" data-i18n="btn_read_more">Read More</a>
+          </div>
+          <div class="reveal reveal-right">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800" alt="Arab Contractors HQ" class="radius-card shadow-strong" referrerPolicy="no-referrer">
+          </div>
+        </div>
+      </section>
+
+      <!-- Stats Bar -->
+      <section class="section-dark py-xl reveal">
+        <div class="container stagger-container">
+          <div class="grid grid-4 text-center">
+            <div class="stat-box">
+              <div class="stat-number" data-target="70" data-suffix="+">0</div>
+              <p class="stat-label" data-i18n="stats_years">Years Experience</p>
+            </div>
+            <div class="stat-box">
+              <div class="stat-number" data-target="2000" data-suffix="+">0</div>
+              <p class="stat-label" data-i18n="stats_projects">Projects Completed</p>
+            </div>
+            <div class="stat-box">
+              <div class="stat-number" data-target="29" data-suffix="+">0</div>
+              <p class="stat-label" data-i18n="stats_countries">Countries</p>
+            </div>
+            <div class="stat-box">
+              <div class="stat-number" data-target="70000" data-suffix="+">0</div>
+              <p class="stat-label" data-i18n="stats_employees">Employees</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Featured Projects -->
+      <section class="section section-light reveal">
+        <div class="container">
+          <div class="section-title animate-fade-up">
+            <span class="text-small text-gold" data-i18n="portfolio_subtitle">PORTFOLIO</span>
+            <h2 data-i18n="portfolio_title">Landmark Projects</h2>
+          </div>
+          <div class="grid grid-3 stagger-container">
+            <!-- Project 1 -->
+            <div class="card">
+              <div class="card-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=600" alt="Rod El Farag Bridge" class="card-img" referrerPolicy="no-referrer">
+                <div class="badge absolute top-md left-md">Infrastructure</div>
+              </div>
+              <div class="card-content">
+                <div class="flex items-center gap-xs text-gold text-small mb-xs">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  <span>Cairo, Egypt</span>
+                </div>
+                <h3 data-i18n="project_1_title">Rod El Farag Axis Bridge</h3>
+                <p class="text-body mb-lg" data-i18n="project_1_desc">The world's widest cable-stayed bridge, a masterpiece of modern engineering.</p>
+                <div class="mt-auto">
+                  <a href="project-detail.html?id=rod-el-farag" class="text-primary font-bold hover:text-gold transition-default" data-i18n="btn_view_details">VIEW DETAILS →</a>
+                </div>
+              </div>
+            </div>
+            <!-- Project 2 -->
+            <div class="card">
+              <div class="card-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1584464431734-7c7036618e7e?w=600" alt="Aswan High Dam" class="card-img" referrerPolicy="no-referrer">
+                <div class="badge absolute top-md left-md">Energy</div>
+              </div>
+              <div class="card-content">
+                <div class="flex items-center gap-xs text-gold text-small mb-xs">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  <span>Aswan, Egypt</span>
+                </div>
+                <h3 data-i18n="project_2_title">Aswan High Dam</h3>
+                <p class="text-body mb-lg" data-i18n="project_2_desc">An iconic project that transformed Egypt's energy landscape and agriculture.</p>
+                <div class="mt-auto">
+                  <a href="project-detail.html?id=aswan-dam" class="text-primary font-bold hover:text-gold transition-default" data-i18n="btn_view_details">VIEW DETAILS →</a>
+                </div>
+              </div>
+            </div>
+            <!-- Project 3 -->
+            <div class="card">
+              <div class="card-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1519011985187-444d62641929?w=600" alt="Cairo Metro" class="card-img" referrerPolicy="no-referrer">
+                <div class="badge absolute top-md left-md">Transport</div>
+              </div>
+              <div class="card-content">
+                <div class="flex items-center gap-xs text-gold text-small mb-xs">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  <span>Cairo, Egypt</span>
+                </div>
+                <h3 data-i18n="project_3_title">Cairo Metro Expansion</h3>
+                <p class="text-body mb-lg" data-i18n="project_3_desc">Developing one of the most efficient urban transport systems in Africa.</p>
+                <div class="mt-auto">
+                  <a href="project-detail.html?id=cairo-metro" class="text-primary font-bold hover:text-gold transition-default" data-i18n="btn_view_details">VIEW DETAILS →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="text-center mt-3xl">
+            <a href="projects.html" class="btn btn-primary" data-i18n="btn_all_projects">View All Projects</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sectors -->
+      <section class="section reveal">
+        <div class="container">
+          <div class="section-title animate-fade-up">
+            <span class="text-small text-gold" data-i18n="expertise_subtitle">EXPERTISE</span>
+            <h2 data-i18n="expertise_title">Industries We Serve</h2>
+          </div>
+          <div class="grid grid-3 stagger-container">
+            <div class="card p-xl text-center group">
+              <div class="mb-lg flex-center transition-bounce group-hover:scale-110">
+                <div class="w-16 h-16 rounded-full bg-neutral-light flex-center text-primary">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21h18M3 7v14M21 7v14M2 7h20M9 7V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3"/></svg>
+                </div>
+              </div>
+              <h3 class="font-display font-bold text-xl mb-md">Public Buildings</h3>
+              <p class="text-body">Hospitals, universities, and government administrative centers that serve the community.</p>
+            </div>
+            <div class="card p-xl text-center group">
+              <div class="mb-lg flex-center transition-bounce group-hover:scale-110">
+                <div class="w-16 h-16 rounded-full bg-neutral-light flex-center text-primary">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                </div>
+              </div>
+              <h3 class="font-display font-bold text-xl mb-md">Infrastructure</h3>
+              <p class="text-body">Bridges, highways, and complex transportation networks connecting people and places.</p>
+            </div>
+            <div class="card p-xl text-center group">
+              <div class="mb-lg flex-center transition-bounce group-hover:scale-110">
+                <div class="w-16 h-16 rounded-full bg-neutral-light flex-center text-primary">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                </div>
+              </div>
+              <h3 class="font-display font-bold text-xl mb-md">Energy & Power</h3>
+              <p class="text-body">Power plants, solar farms, and renewable energy solutions for a sustainable future.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Innovation -->
+      <section class="section section-light reveal">
+        <div class="container grid grid-2 items-center">
+          <div class="reveal-left">
+            <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800" alt="Construction Tech" class="radius-card shadow-strong" referrerPolicy="no-referrer">
+          </div>
+          <div class="reveal-right">
+            <span class="text-small text-gold" data-i18n="innovation_subtitle">INNOVATION</span>
+            <h2 data-i18n="innovation_title">Building with Intelligence</h2>
+            <p class="text-body mb-lg" data-i18n="innovation_desc">We leverage Building Information Modeling (BIM) and digital twin technology to optimize every phase of construction, ensuring precision and sustainability.</p>
+            <div class="grid grid-2 gap-md stagger-container">
+              <div class="p-md bg-white radius-card shadow-subtle">
+                <h4 class="mb-xs">BIM 3D</h4>
+                <p class="text-small" data-i18n="innovation_bim">Digital modeling</p>
+              </div>
+              <div class="p-md bg-white radius-card shadow-subtle">
+                <h4 class="mb-xs">Green Build</h4>
+                <p class="text-small" data-i18n="innovation_green">Sustainable materials</p>
+              </div>
+            </div>
+            <a href="innovation.html" class="btn btn-primary mt-xl" data-i18n="btn_discover_more">Discover More</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Global Presence -->
+      <section class="section section-dark">
+        <div class="container text-center">
+          <div class="section-title">
+            <span class="text-small text-gold" data-i18n="global_subtitle">GLOBAL REACH</span>
+            <h2 class="text-white" data-i18n="global_title">Operating Across Continents</h2>
+          </div>
+          <div class="map-container mb-3xl">
+            <!-- Simple SVG Map Placeholder -->
+            <svg viewBox="0 0 1000 500" class="w-full h-full opacity-100">
+              <path fill="rgba(255,255,255,0.1)" d="M150,100 L850,100 L850,400 L150,400 Z" />
+              <!-- Dots for regions -->
+              <circle cx="500" cy="250" r="8" fill="#E8A317" class="animate-pulse" />
+              <circle cx="550" cy="300" r="5" fill="#E8A317" />
+              <circle cx="450" cy="280" r="5" fill="#E8A317" />
+              <circle cx="600" cy="220" r="5" fill="#E8A317" />
+            </svg>
+          </div>
+          <div class="grid grid-4">
+            <div class="p-lg radius-card transition-bounce hover:bg-white/5">
+              <h3 class="text-gold mb-xs text-3xl" data-i18n="region_me">Middle East</h3>
+              <p class="text-small" data-i18n="region_me_desc">12 Countries</p>
+            </div>
+            <div class="p-lg radius-card transition-bounce hover:bg-white/5">
+              <h3 class="text-gold mb-xs text-3xl" data-i18n="region_af">Africa</h3>
+              <p class="text-small" data-i18n="region_af_desc">18 Countries</p>
+            </div>
+            <div class="p-lg radius-card transition-bounce hover:bg-white/5">
+              <h3 class="text-gold mb-xs text-3xl" data-i18n="region_as">Asia</h3>
+              <p class="text-small" data-i18n="region_as_desc">4 Countries</p>
+            </div>
+            <div class="p-lg radius-card transition-bounce hover:bg-white/5">
+              <h3 class="text-gold mb-xs text-3xl" data-i18n="region_eu">Europe</h3>
+              <p class="text-small" data-i18n="region_eu_desc">2 Countries</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Photo Gallery -->
+      <section class="section">
+        <div class="container">
+          <div class="section-title text-center mb-4xl">
+            <span class="text-small text-gold" data-i18n="gallery_subtitle">VISUAL JOURNEY</span>
+            <h2 data-i18n="gallery_title">Project Gallery</h2>
+            <p class="text-body mt-sm max-w-7xl mx-auto" data-i18n="gallery_desc">A glimpse into our diverse portfolio of landmark projects across the globe.</p>
+          </div>
+          <div class="grid grid-4 gap-md">
+            <div class="reveal reveal-up overflow-hidden radius-card group">
+              <img src="https://images.unsplash.com/photo-1584464431734-7c7036618e7e?w=600&h=600&fit=crop" alt="Aswan Dam" class="w-full h-full object-cover transition-slow group-hover:scale-110" referrerPolicy="no-referrer">
+            </div>
+            <div class="reveal reveal-up overflow-hidden radius-card group" style="transition-delay: 0.1s;">
+              <img src="https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=600&h=600&fit=crop" alt="Bridge" class="w-full h-full object-cover transition-slow group-hover:scale-110" referrerPolicy="no-referrer">
+            </div>
+            <div class="reveal reveal-up overflow-hidden radius-card group" style="transition-delay: 0.2s;">
+              <img src="https://images.unsplash.com/photo-1519011985187-444d62641929?w=600&h=600&fit=crop" alt="Metro" class="w-full h-full object-cover transition-slow group-hover:scale-110" referrerPolicy="no-referrer">
+            </div>
+            <div class="reveal reveal-up overflow-hidden radius-card group" style="transition-delay: 0.3s;">
+              <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=600&fit=crop" alt="NAC" class="w-full h-full object-cover transition-slow group-hover:scale-110" referrerPolicy="no-referrer">
+            </div>
+            <div class="reveal reveal-up overflow-hidden radius-card group" style="transition-delay: 0.4s;">
+              <img src="https://images.unsplash.com/photo-1503387762-592dee58c162?w=600&h=600&fit=crop" alt="GEM" class="w-full h-full object-cover transition-slow group-hover:scale-110" referrerPolicy="no-referrer">
+            </div>
+            <div class="reveal reveal-up overflow-hidden radius-card group" style="transition-delay: 0.5s;">
+              <img src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=600&h=600&fit=crop" alt="Mosque" class="w-full h-full object-cover transition-slow group-hover:scale-110" referrerPolicy="no-referrer">
+            </div>
+            <div class="reveal reveal-up overflow-hidden radius-card group" style="transition-delay: 0.6s;">
+              <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=600&h=600&fit=crop" alt="Stadium" class="w-full h-full object-cover transition-slow group-hover:scale-110" referrerPolicy="no-referrer">
+            </div>
+            <div class="reveal reveal-up overflow-hidden radius-card group" style="transition-delay: 0.7s;">
+              <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&h=600&fit=crop" alt="Tunnel" class="w-full h-full object-cover transition-slow group-hover:scale-110" referrerPolicy="no-referrer">
+            </div>
+          </div>
+          <div class="text-center mt-xl">
+            <a href="gallery.html" class="btn btn-outline" style="color: var(--color-primary); border-color: var(--color-primary);" data-i18n="btn_view_gallery">View Full Gallery</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- News -->
+      <section class="section">
+        <div class="container">
+          <div class="section-title">
+            <span class="text-small text-gold" data-i18n="media_subtitle">MEDIA</span>
+            <h2 data-i18n="media_title">Latest News</h2>
+          </div>
+          <div class="grid grid-3">
+            <div class="card reveal reveal-up">
+              <div class="card-content">
+                <p class="text-small text-gold mb-sm" data-i18n="news_1_date">March 15, 2024</p>
+                <h3 class="mb-sm" data-i18n="news_1_title">New Contract Signed for Cairo Metro Line 4</h3>
+                <p class="text-body mb-lg" data-i18n="news_1_desc">Arab Contractors awarded the main construction contract for the new metro phase...</p>
+                <a href="news.html" class="text-small font-bold mt-auto text-primary" data-i18n="btn_read_more_arrow">READ MORE →</a>
+              </div>
+            </div>
+            <div class="card reveal reveal-up" style="transition-delay: 0.1s;">
+              <div class="card-content">
+                <p class="text-small text-gold mb-sm" data-i18n="news_2_date">Feb 28, 2024</p>
+                <h3 class="mb-sm" data-i18n="news_2_title">Arab Contractors Ranks High in ENR Global List</h3>
+                <p class="text-body mb-lg" data-i18n="news_2_desc">The company maintains its position among the top 250 international contractors...</p>
+                <a href="news.html" class="text-small font-bold mt-auto text-primary" data-i18n="btn_read_more_arrow">READ MORE →</a>
+              </div>
+            </div>
+            <div class="card reveal reveal-up" style="transition-delay: 0.2s;">
+              <div class="card-content">
+                <p class="text-small text-gold mb-sm" data-i18n="news_3_date">Jan 12, 2024</p>
+                <h3 class="mb-sm" data-i18n="news_3_title">Sustainability Award for Green Building Initiatives</h3>
+                <p class="text-body mb-lg" data-i18n="news_3_desc">Recognized for excellence in implementing sustainable construction practices...</p>
+                <a href="news.html" class="text-small font-bold mt-auto text-primary" data-i18n="btn_read_more_arrow">READ MORE →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- YouTube Videos -->
+      <section class="section section-light">
+        <div class="container">
+          <div class="section-title text-center mb-4xl">
+            <span class="text-small text-gold" data-i18n="youtube_subtitle">OUR CHANNEL</span>
+            <h2 data-i18n="youtube_title">Latest from YouTube</h2>
+            <p class="text-body mt-sm max-w-7xl mx-auto" data-i18n="youtube_desc">Watch our latest project updates, documentaries, and corporate videos.</p>
+          </div>
+          <div id="youtube-videos-container" class="grid grid-3 gap-lg">
+            <!-- Videos will be injected here via JS -->
+          </div>
+          <div class="text-center mt-xl">
+            <a href="https://www.youtube.com/channel/UChK3hIjEocqsIQhj_3WtXSg" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="mr-sm"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+              <span data-i18n="btn_subscribe">Subscribe to Channel</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer pt-4xl pb-xl">
+      <div class="container">
+        <div class="grid grid-4 mb-4xl">
+          <div>
+            <svg width="150" height="50" viewBox="0 0 180 60" xmlns="http://www.w3.org/2000/svg" class="mb-lg">
+              <circle cx="30" cy="30" r="25" fill="var(--color-primary)" />
+              <text x="30" y="38" font-family="Arial" font-size="24" fill="var(--bg-card)" text-anchor="middle" font-weight="bold">AC</text>
+              <text x="65" y="28" font-family="Arial" font-size="18" fill="var(--text-main)" font-weight="bold">ARAB CONTRACTORS</text>
+              <text x="65" y="48" font-family="Arial" font-size="14" fill="var(--color-secondary)" font-weight="bold">المقاولون العرب</text>
+            </svg>
+            <p class="text-small opacity-100" data-i18n="footer_desc">One of the largest and oldest construction companies in the Middle East and Africa, with roots extending back more than half a century.</p>
+          </div>
+          <div>
+            <h4 class="mb-xl text-main" data-i18n="footer_quick_links">Quick Links</h4>
+            <ul class="text-small opacity-100 flex flex-col gap-sm">
+              <li><a href="about.html" class="hover:text-gold" data-i18n="nav_about">About Us</a></li>
+              <li><a href="projects.html" class="hover:text-gold" data-i18n="nav_projects">Projects</a></li>
+              <li><a href="sectors.html" class="hover:text-gold" data-i18n="nav_sectors">Sectors</a></li>
+              <li><a href="news.html" class="hover:text-gold" data-i18n="nav_news">News</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="mb-xl text-main" data-i18n="footer_contact">Contact</h4>
+            <ul class="text-small opacity-100 flex flex-col gap-sm">
+              <li data-i18n="footer_address">34 Adly Street - Cairo, Egypt</li>
+              <li>+20 2 23959500</li>
+              <li>info@arabcont.com</li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="mb-xl text-main" data-i18n="footer_follow">Follow Us</h4>
+            <div class="flex gap-md">
+              <a href="#" class="hover:text-gold"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+              <a href="#" class="hover:text-gold"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+              <a href="#" class="hover:text-gold"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+            </div>
+          </div>
+        </div>
+        <div class="border-top pt-xl flex-between">
+          <p class="text-small opacity-100">© <span id="footer-year"></span> <span data-i18n="footer_rights">Arab Contractors. All rights reserved.</span></p>
+          <div class="flex gap-md text-small opacity-100">
+            <a href="#" data-i18n="footer_privacy">Privacy Policy</a>
+            <a href="#" data-i18n="footer_terms">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <button class="back-to-top flex-center">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
+
+    <script type="module" src="src/main.tsx"></script>
+  </body>
+</html>
+

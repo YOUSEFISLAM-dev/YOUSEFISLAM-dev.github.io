@@ -1,0 +1,87 @@
+/* Light Theme Variables */
+.light-theme {
+  --bg-body: #ffffff;
+  --bg-card: #ffffff;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --color-primary: #0f172a;
+  --color-secondary: #f59e0b;
+  --color-accent: #f59e0b;
+  --border-color: rgba(0, 0, 0, 0.08);
+  --nav-bg: rgba(255, 255, 255, 0.8);
+  --color-white: #FFFFFF;
+  --hover-bg: rgba(0, 0, 0, 0.05);
+}
+
+/* Dark Theme Variables */
+.dark-theme {
+  --bg-body: #0b0f19;
+  --bg-card: #111827;
+  --text-main: #e5e7eb;
+  --text-muted: #9ca3af;
+  --color-primary: #f59e0b;
+  --color-secondary: #f59e0b;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --nav-bg: rgba(11, 15, 25, 0.8);
+  --color-white: #e5e7eb;
+  --hover-bg: rgba(255, 255, 255, 0.1);
+}
+
+:root {
+  /* Common Brand Colors */
+  --color-success: #10B981;
+  --color-error: #EF4444;
+
+  /* Typography */
+  --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  
+  /* Spacing (8px base) */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+  --space-4xl: 96px;
+
+  /* Border Radius */
+  --radius-btn: 6px;
+  --radius-card: 12px;
+  --radius-img: 8px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-subtle: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  --shadow-medium: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+  --shadow-strong: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+  /* Transitions & Animations */
+  --transition-default: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  
+  --anim-fast: 200ms;
+  --anim-normal: 400ms;
+  --anim-slow: 700ms;
+  --anim-extra-slow: 1200ms;
+  
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-expo: cubic-bezier(0.87, 0, 0.13, 1);
+
+  /* Layout */
+  --container-max: 1280px;
+  --nav-height: 110px;
+}
+
+/* Mobile Overrides */
+@media (max-width: 767px) {
+  :root {
+    --space-4xl: 64px;
+    --space-3xl: 48px;
+    --space-2xl: 32px;
+    --nav-height: 80px;
+  }
+}

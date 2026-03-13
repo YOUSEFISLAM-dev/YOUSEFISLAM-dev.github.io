@@ -1,0 +1,14 @@
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[build]
+  publish = "dist"
+  command = "npm run build"
+
+[build.processing]
+  skip_processing = false
+
+[build.processing.html]
+  pretty_urls = true
